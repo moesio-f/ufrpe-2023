@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - 'xournal/**'
+    - '.github/workflows/publish-xournal.yaml'
 
 permissions:
   contents: write
@@ -31,7 +32,9 @@ jobs:
         run: ./.github/scripts/xopp_to_pdf.sh
           
       - name: Delete previous xournal branch
-        run: git branch -D xournal || true
+        run: |
+          git branch -D xournal || true
+          git push origin -D xournal || true
 
       - name: Create xournal branch with PDFs
         run: |

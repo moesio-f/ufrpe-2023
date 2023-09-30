@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - 'notes/**'
+    - '.github/workflows/publish-logseq.yaml'
 
 permissions:
   contents: write
