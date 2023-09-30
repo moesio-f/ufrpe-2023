@@ -1,2 +1,2 @@
-- [[Redes Neuras: Introdução]]
+- [[Redes Neurais: Introdução]]
 -
