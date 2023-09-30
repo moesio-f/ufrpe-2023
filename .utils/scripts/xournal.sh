@@ -3,5 +3,5 @@ set -e
 
 cd $(realpath $(dirname $0))
 ./sync.sh
-xournalpp $1
+xournalpp
 ./push.sh xournal
