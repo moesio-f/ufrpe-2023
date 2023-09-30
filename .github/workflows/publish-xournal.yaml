@@ -5,6 +5,7 @@ on:
     paths:
     - 'xournal/**'
     - '.github/workflows/publish-xournal.yaml'
+    - '.github/scripts/xopp_to_pdf.sh'
 
 permissions:
   contents: write
