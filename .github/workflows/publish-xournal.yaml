@@ -34,7 +34,7 @@ jobs:
       - name: Delete previous xournal branch
         run: |
           git branch -D xournal || true
-          git push origin -D xournal || true
+          git push origin -d xournal || true
 
       - name: Create xournal branch with PDFs
         run: |
