@@ -39,6 +39,7 @@ jobs:
       - name: Create xournal branch with PDFs
         run: |
           git checkout --orphan xournal
-          git rm -r --cached .github/ .utils/ code/ notes/ .gitignore
+          git rm -r --cached .github/ .utils/ code/ notes/ xournal/ .gitignore
+          git add xournal/
           git commit -m "xournal: PDF files"
           git push origin xournal
