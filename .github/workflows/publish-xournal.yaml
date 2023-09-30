@@ -1,0 +1,41 @@
+# Publish Xournal++ notes as PDFs in new branch
+
+on:
+  push:
+    paths:
+    - 'xournal/**'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish Xournal++ annotations
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Install Xournal++ on runner
+        run: |
+          sudo apt update
+          sudo apt upgrade
+          sudo apt install xournalpp
+
+      - name: Configure Git user
+        run: |
+          git config --global user.email "moesio-f@users.noreply.github.com"
+          git config --global user.name "Moésio Filho"
+
+      - name: Generate PDF files from .xopp
+        run: ./.github/scripts/xopp_to_pdf.sh
+          
+      - name: Delete previous xournal branch
+        run: git branch -D xournal || true
+
+      - name: Create xournal branch with PDFs
+        run: |
+          git checkout --orphan xournal
+          git rm -r --cached .github/ .utils/ code/ notes/ .gitignore
+          git commit -m "xournal: PDF files"
+          git push origin xournal

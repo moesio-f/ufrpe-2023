@@ -1,0 +1,31 @@
+# Publish logseq notes as SPA
+
+on:
+  push:
+    paths:
+    - 'notes/**'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish Logseq graph
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Generate SPA
+        uses: logseq/publish-spa@v0.2.0
+        with:
+          graph-directory: notes
+          output-directory: www
+
+      - name: add a nojekyll file
+        run: touch $GITHUB_WORKSPACE/www/.nojekyll
+
+      - name: Deploy Logseq Graph to GH pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: www
