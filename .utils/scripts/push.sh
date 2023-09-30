@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-commit_msg="$1: update $(date +'%H:%M-%d/%m/%y')"
+commit_msg="${1:-manual}: update $(date +'%H:%M-%d/%m/%y')"
 cd $(realpath $(dirname $0))
 cd $(./get_root.sh)
 git add .

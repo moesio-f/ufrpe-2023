@@ -21,7 +21,6 @@ jobs:
       - name: Install Xournal++ on runner
         run: |
           sudo apt update
-          sudo apt upgrade
           sudo apt install xournalpp
 
       - name: Configure Git user
