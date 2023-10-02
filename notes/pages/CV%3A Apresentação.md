@@ -1,0 +1,34 @@
+- Objetivos
+	- Conceitos básicos e algoritmos da área de Visão Computacional
+	- Experimentar na prática os conceitos abordados
+- Avaliação
+	- Projeto!
+	- As entregas de 1ª, 2ª e 3ª VA são todas relativas ao projeto planejado
+	- Individual, com entregas incrementais
+	- Como podemos realizar?
+		- Implementação de um algoritmo/técnica/sistema de CV descrito em Artigo Científico
+		- Sistema de Visão Computacional proposto pelo estudante
+	- Entregas
+		- Relatório parcial/final: 5 a 6 páginas
+			- Introdução, Conceitos Básicos, Metodologia, Resultados, Conclusão e Trabalhos Futuros
+			- Entregas da 2ª e 3ª VA
+		- Apresentação: vídeo de até 10 minutos
+			- YouTube + Slides
+			- Entrega da 1ª, 2ª e 3ª VA
+		- Proposta do projeto: 2 páginas
+			- Entrega da 1ªVA
+			- Objetivo, Trabalhos Relacionados, Metodologia, Resultados Esperados e Cronograma
+		- Código fonte
+			- Em todas entregas que aplicável
+	- Datas
+		- **26/10/2023**: definição/propostas do projeto
+		- **27/11/2023**: entrega da proposto do projeto, fim da 1ª parte da disciplina
+		- **19/02/2024**: entrega do projeto (2ªVA)
+		- **29/02/2024**: entrega do projeto (3ªVA)
+- Bibliografia
+	- Só para quem deseja se aprofundar
+	- **Computer Visiona: Algorithms and Applications** (R. Szeliski)
+	- **Processamento Digital de Imagens** (Gozanles e Woord)
+	- **Learning OpenCV 3: Computver Vision in C++ with OpenCV Library** (Kaehler et.al)
+- Ementa
+	-

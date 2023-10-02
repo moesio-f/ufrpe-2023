@@ -1,0 +1,14 @@
+- Imagens -> Dados, extração de dados a partir de imagens!
+- Computação "Visual": engloba várias áreas correlatas com o tratamento e processamento envolvendo imagens
+  id:: 651aff1f-e032-4752-9430-263442841d27
+	- **Processamento de Imagens** e **Modelagem Geométrica** como auxiliares para *Imagens* e *Dados* respectivamente
+	- **Computação Gráfica**: Dados -> Imagem
+	- **Visão Computacional**: Imagem -> Dados
+	- Diversas outras áreas utilizam esses conhecimentos: *Realidade Virtual e Aumentada*, *Robótica*, *Interação Humano-Máquina*, *Mapeamento Móvel*, *Carros Autônomos*, *Esportes*, *Cinema*, *Saúde*, *Indústria*, *Sensoriamento Remoto*, *Rastreamento de Pessoas*, *Biometria*, *Engenharia de Documentos*, *Busca de Imagens*
+- Indústria da Visão Computadional
+	- Cada vez mais comuns no mundo modernos
+	- Movimentação de U$ 25+ bilhões em 2025
+	- Reconstrução 3D/síntese de ambientes
+		- Neural Radiance Fields
+	- Rastreamento e reconstrução facial
+-

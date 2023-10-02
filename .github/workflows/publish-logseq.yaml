@@ -22,6 +22,7 @@ jobs:
         with:
           graph-directory: notes
           output-directory: www
+          theme-mode: dark
 
       - name: add a nojekyll file
         run: touch $GITHUB_WORKSPACE/www/.nojekyll
