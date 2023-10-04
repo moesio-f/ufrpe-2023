@@ -1,0 +1,46 @@
+- Objetivo(s)
+	- Abordar conceitos básicos e algoritmos relacionados à Computação Gráfica
+- Avaliação
+	- Projeto(s) para 1ª, 2ª e 3ª VA
+- Datas
+	- **01/12/2023**: Entrega 1ª VA, código (não precisa de apresentação)
+	- **03/02/2024**: Entrega 2ªVA
+	- **01/03/2024**: Entrega 3ªVA
+- Bibliografia
+	- Fundamentos da Computação Gráfica, L. Velho e J. Gomes (2008)
+	- Fundamentals of Computer Graphics, Shirley e Marschner (2009)
+- O que é Computação Gráfica?
+	- ((651aff1f-e032-4752-9430-263442841d27))
+	- Dados ->Imagem
+	- Algumas áreas: *Cinema*, *Jogos*, *Televisão*, *Arquitetura*, *Medicina*. *Visualização Científica*, *Realidade Virtual/Aumentada*, *Simulação*
+- Perspectiva Histórica da Computação Gráfica
+	- Termo "Computação Gráfica" criado por William Fetter (1960)
+	- Sketchpad: Ivan Sutherland (1963, MIT)
+		- Pioneiro em CG e RV/RA
+		- Ganhou o prêmio Turing em 1988
+		- Sketchpad = Caneta + Tela para desenho e manipulação de formas geométricas
+	- Console Odyssey (1966)
+	- Curtas da Pixar em 1980
+	- Toy Story em 1995
+	- Quake (1996)
+- Sub-áreas de CG
+	- **Modelagem**: forma e aparência, especificação matemática para representação de objetos/elementos de uma cena
+	- **Renderização**: geração da *imagem* a partir dos dados/modelos. Também conhecida como **síntese**, utiliza os modelos oriundos da modelagem
+		- Também é necessário levar em conta sombras, luz e suas interações com os objetos
+		- Posicionamento de objetos, posicionamento da câmera virtual (perspectiva, etc)
+	- **Animação**: relacionada com o comportamento dos elementos que fazem parte da cena
+		- Ilusão de movimento a partir de sequência de imagens
+- Realismo e Computação Gráfica
+	- **Físico**: busca gerar o estímulo visual da cena real equivalente
+		- Não é tratado em CG, pois é proibitivo no ponto de vista dos recursos funcionais (e.g., simulação física de alta precisão e estrita)
+	- **Fotorrealismo**: resposta visual da cena real, mas sem replicação de todo o processo físico
+		- Inspiração no mundo rela, todavia são realizadas múltiplas aproximações para ser computacionalmente viável
+		- Tratado em CG
+	- **Funcional**: a preocupação é passar as mesmas informações visuais da cena real
+		- Fiel do ponto de vista do presente no mundo real
+		- Manuais de instrução costumam utilizar esse tipo de realismo
+		- Tratado em CG
+- Placas de Vídeo
+	- Nos primórdios, necessitavam de GPUs específicas de custo elevadíssimo
+	- Hoje, GPUs já são bem mais acessíveis
+		- Incluindo iGPUs em processadores
