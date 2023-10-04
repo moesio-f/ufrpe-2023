@@ -1,5 +1,4 @@
 - Por qual motivos precisamos de Bancos de Dados Não Convencionais (Relacionais)?
-  collapsed:: true
 	- **Principal:** necessidades do *Big Data* e Bancos de Dados extremamente performáticos
 	- *BI* vs *Big Data*: não é uma competição! Cada área possui técnicas e objetivos diferentes
 		- BI: olhar para o passado e entender o que aconteceu
@@ -38,13 +37,11 @@
 			- Normalmente, Cientista de Dados trabalham sobre os dados permitindo seu uso pelo aplicativo
 			- Hoje, já começou a se separar o Cientista do Engenheiro de Dados, similar ao que ocorreu com BI
 - DBA -> Database Administrator, responsável por gerenciar o datacenter
-  collapsed:: true
 	- Depois, surgiu-se um profissional responsável por fazer projetos que facilitassem o trabalho dos desenvolvedores relacionados com as aplicações (normalmente)
 	- Hoje, também temos o Engenheiro de Dados que é responsável de quebrar os dados facilitando o trabalho da próxima equipe
 - Sugestão: Gartner Hype Cycle
 - Big Data não é uma tecnologia!! É um novo paradigma
 - **Escalabilidade**: é possível preservar o desempenho quando há um aumento significativo de sua demanda através do aumento de recursos
-  collapsed:: true
 	- **Vertical**: aumento dos parâmetros de velocidade, armazenamento ou memória
 	- **Horizontal**: uso de recursos individuais distribuídos integrados como um único sistema
 	- ![Scalability — Vertical or Horizontal Scaling when Designing Architectures |  by Mehmet Ozkaya | Design Microservices Architecture with Patterns &  Principles | Medium](https://miro.medium.com/v2/resize:fit:814/1*kJwD0kMDHx9ZjZEHeKr8yg.png)

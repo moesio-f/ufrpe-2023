@@ -1,0 +1,4 @@
+- Revisão - Banco de Dados Relacionais
+	- MySQL, postgres, Oracle
+	- Sempre costumam ser a primeira opção ao desenvolver qualquer aplicação
+	-
