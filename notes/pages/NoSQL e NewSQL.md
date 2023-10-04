@@ -1,4 +1,113 @@
 - Revisão - Banco de Dados Relacionais
 	- MySQL, postgres, Oracle
 	- Sempre costumam ser a primeira opção ao desenvolver qualquer aplicação
-	-
+	- Normalização de dados: sem duplicidade, redundância controlada, sem dependência entre dados de uma mesma tabela
+	- Relacionamentos: chaves estrangeiras
+	- Necessidade de *schema*
+	- Não temos dados *complexos*, todos podem ser armazenados em tabela
+	  collapsed:: true
+		- NewSQL --> permite armazenar dados em outros formatos que não sejam tabelas
+	- Usam principalmente o SQL: Data Manipulation Language (DML)
+	  collapsed:: true
+		- Flexível
+		- Muitos operadores
+		- Relacionamentos
+	- **ACID**: propriedades que bancos relacionais garantem, o método geral para permitir essas propriedades são através das *transações*
+	  collapsed:: true
+		- **A**tomicidade, transação ocorre ou não ocorre
+		- **C**onsistência, validação e todas transação geram um estado válido
+		- **I**solamento, mesmo com transações concorrentes o resultado é válido
+			- Se existir dependência (e.g., ambas transações precisa de um mesmo relacionamento), o resultado sempre é determinístico
+		- **D**urabilidade, uma vez que gravado é definitivo
+	- Algumas desvantagens
+	  collapsed:: true
+		- **Dependência da Modelagem**: mudanças precisam de uma migração
+		- **Mantenabilidade**: aplicações podem crescer muito rapidamente
+		- **Escalabilidade**: só permite o escalonamento vertical (i.e., aumento de recursos da máquina)
+			- Apesar de que, com a Computação em Nuvem conseguimos realizar esse escalonamento
+			- Entretanto, ainda é difícil lidar com o *escalonamento horizontal*; apesar de ser possível através de um sistema mais complexo de orquestração
+	- Detalhes dos modelos físicos: *indexação*
+	- Permite a criação de **visões**: abstração para queries e visualização de dados mais complexos dentro do BD para um dado grupo de usuários
+	  collapsed:: true
+		- Todavia, é complexo para manter essas visões
+	- Permite o *cacheamento* de dados pelos aplicativos (evitando realizar novas consultas no banco)
+	  collapsed:: true
+		- Uma consequência é uma duplicação dos dados
+- Visando resolver as limitações e desvantagens dos Bancos de Dados Relacionais no contexto do *Big Data*, foram-se criados os **Bancos de Dados Não-Convencionais** (e.g, **NoSQL**)
+- **NoSQL**
+	- Não utilizam **SQL** como linguagem única
+	- Construídos para trabalhar em ambientes *clusterizados*: escalonamento **horizontal**
+	- Persistência poliglota para flexibilização do ACID
+	  collapsed:: true
+		- Teorema CAP
+		- Apesar do trade-off, também é buscado equilibrar os requisitos em harmonia
+		- A persistência poliglota utiliza mais de um *tipo* de armazenamento de dados
+			- Parte no modelo Relacional
+			- Parte no modelo baseado em Documentos
+			- Parte no modelo baseado em Grafos
+			- A **aplicação** que lida com vários DBMSs
+	- Liberdade de esquema e modelagem
+	  collapsed:: true
+		- São necessários projetos, todavia o modelo é mais maleável que o relacional
+		- Podemos utilizar schemas *mínimos* e ao mesmo tempo permitir que existam diferenças entre objetos
+		- Como escrever? Como consultar? Como armazenar?
+			- Perguntas gerais para auxiliar na estrutura do Banco
+	- **Teorema CAP**: **Consistency** vs **Availability** vs **Partition/Fault Tolerance**
+	  collapsed:: true
+		- Necessário escolher os recursos desejados (não tem como ter todos ao mesmo tempo)
+		- **Nenhum** banco de dados vai possuir essas 3 características
+		- A persistência poliglota permite utilizar múltiplos bancos (sistema heterogêneo) de acordo com as necessidades de cada dado manipulado pela aplicação
+		- **C**onsistency: **BASE** (basically-available, soft-state, eventual consistency)
+			- O BD não precisa estar consistente o tempo inteiro
+			- Utilizado no contexto de *Bancos de Dados Distribuídos* (e, por definição, NoSQL)
+			- BA -> leitura e escrita são disponíveis sempre que possível, mas podem não ser consistentes
+			- S -> não possui garantia de consistência
+			- E -> após alguma escrita, se esperarmos tempo suficiente o estado do sistema vai convergir
+		- **A**vailability: sistema sempre vai responder às requisições realizadas
+		- **P**artition/Fault Tolerance: sistema continua operando mesmo se parte do sistema se tornar indisponível
+		- Alguns exemplos de bancos e quais recursos são priorizados
+			- Relacionais: $C + A$
+			- Mongo, DB, Redis: $C + P$
+			- CouchDB, Cassandra: $P + A$
+			- Ao longo do tempo, as coisas mudam
+- SQL vs NoSQL
+  collapsed:: true
+	- **Normalização** fica de lado, permitimos duplicidade, falta de consistência
+		- Dentro dos limites requisitados pelo sistema
+	- Novo modelo de **consulta**: filtros, scripts, etc
+	- **Linguagens distintas**
+		- Cada DBMS possui sua própria linguagem
+		- Existem similaridades entre linguagens, mas nada padronizado como o SQL
+	- **Modelagem** é distinta
+	- **Relação** vs **Agregados**
+		- A-B-C vs A[B[C]], NoSQL utilizam a segunda opção
+		- Agregados são *aninhamentos* de conjunto de dados
+			- Agregados atômicos são escritos e recuperados de uma única vez
+				- No exemplo anterior, *B* sempre é escrito e recuperado junto à *C*
+				- Quando essa característica não é desejada, não realizamos o aninhamento
+- Até agora, o termo NoSQL parece ser usado como um termo *umbrella* para diversos DBMS não relacionais
+	- Lista de DBMSs não relacionais: https://hostingdata.co.uk/nosql-database/
+	- No geral, cada banco utiliza um *data model* particular
+- Visão geral de *Data Models* para NoSQL
+	- ![Boosting Performance with Indexing in NoSQL Databases: A Deep Dive | by  Saeed Mohajeryami, PhD | Level Up Coding](https://miro.medium.com/v2/resize:fit:1400/0*l2FRaRHZyO9PwPW0.png)
+	- **Chave-valor**
+		- Modelo extremamente simples, não recomendado para todos os cenários
+		- Rápido, escalável e simples
+		- Muitas estruturas de dados não podem ser facilmente representáveis por esse modelo
+		- Exemplo de DBMS: *Couchbase*, *DynamoDB*
+	- **Colunas**
+		- Boa solução para dados esparsos
+		- Entre relacional e o chave-valor
+		- Não possui transações ACID e não permite joins
+		- Provê performance e escalabilidade
+		- Organizado em *famílias de colunas*
+			- Cada linha representa uma instância
+			- Uma dada linha pode possuir entre 1 ou $N$ colunas
+		- Exemplo de DBMS: *Apache Cassandra*, *HBase*, *Hadoop*
+		- Exercício -> conversão de ER para colunar
+	- **Documentos**
+		- Próxima aula
+		- Exemplo de DBMS: *Firestore*
+	- **Grafo**
+		- Próxima aula
+		- Exemplo de DBMS: *Neo4J*, *GraphBase*
