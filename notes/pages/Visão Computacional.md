@@ -1,3 +1,4 @@
 - [[CV: Apresentação]]
 - [[O que é Visão Computacional?]]
+- [[Fundamentos de Imagems]]
 -

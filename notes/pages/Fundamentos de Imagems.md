@@ -1,0 +1,84 @@
+- O que é uma imagem?
+	- Podemos definir como um **sinal** bidimensional digital ou analógico: $f(x, y): A\times B \to C$
+		- Um sinal é uma função que transmite informações sobre comportamento ou atributos de algum fenômeno (e.g., imagem, som, etc)
+		- Analógico é definido em um espaço contínuo, enquanto o digital é em um domínio discreto
+		- O nosso mundo é **analógico**, todavia computadores são **digitais**
+		- Conversão da digital para a analógica é realizada através de **amostragem**
+- Imagem Digital
+	- $f(x, y): \mathbb{N}^2 \to C$
+	- Quando em tons de cinza, $C \subset [0..255]$ é a amplitude
+	- Regiões de alta e baixa frequência se relacionam com regiões do espaço no qual $f(x, y)$ varia rapidamente
+	- **Picture element (pixel)**: menor detalhe discernível em uma imagem
+		- Quando aplicamos a discretização do sinal analógico, essa é a menor unidade coesa representável
+	- Imagens Coloridas
+		- Existem diferentes modelos para representação de *cores*: RGB, RGBA, CMY, HSV, HSL, CMYK
+		- **RGB**: modelo aditivo
+			- Soma de luzes de diferentes cores
+			- Utiliza as cores primárias (Red, Green, Blue)
+			- Uma dada cor $c$ é obtida através da combinação (adição) das 3 componentes desse modelo: $c = r\mathrm{R} + g\mathrm{G} + b\mathrm{B}$, com $r, g, b \in [0..255]$
+			- ![File:RGB color cube.svg - Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/d/d6/RGB_color_cube.svg)
+		- **CMY**: modelo subtrativo
+			- Utilizado para representação de cores de pigmentos (i.e, cores são relativos às frequências de luz absorvidas e refletidos)
+			- Cores primárias de pigmento (Cyan, Magenta, Yellow)
+			- Dual do RGB, também podemos ter o cubo CMY
+			- ![RGB vs CMYK: What's the Difference?](https://images.prismic.io/rushordertees-web/OTNmMjE2YTAtMGY0ZS00MmYyLWFiMzctMTUzNzRlODZjY2I1_rgb-vs-cmyk.jpg?auto=compress,format&rect=0,0,1800,930&w=1800&h=930)
+		- **CMYK**: essencialmente o mesmo que o CMY todavia com uma nova componente para o preto
+			- Conversão entre o CMY e CMYK pode ser realizado da seguinte forma:
+				- Seja $c = (C, M, Y) \in [0..255]^3$ no modelo CMY
+				- Calculamos $K = \min(c)$
+				- Assim, $c' = (c_C - K, c_M - K, c_Y - K, K) \in [0..255]^4$ é a nova cor em CMYK
+			- A ideia de se utilizar esse modelo é reduzir o custo de tintas de impressoras, visto que os canais C, M e Y necessitam de menos tinta para serem representados
+		- **HSV**: sistema de cor voltado para interpretação humana
+			- *Hue* (matiz ou crominância): propriedade que permite distinguir uma cor de outras.
+			- *Saturation* (saturação): grau de pureza em relação ao cinza
+			- *Value* (valor): canal acromático, relacionado com a quantidade de luz emitida ou refletida
+			- ![File:Color solid comparison hsl hsv cube cylinder cone.png - Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Color_solid_comparison_hsl_hsv_cube_cylinder_cone.png/640px-Color_solid_comparison_hsl_hsv_cube_cylinder_cone.png)
+	- Processo de Obtenção de Imagens
+		- Uma das formas possível é através da medição da *radiação eletromagnética*
+			- O espectro eletromagnético classifica as ondas de acordo com seu comprimento de onda
+			- Uma parte desse espectro é relativo à **luz visível**
+			- ![Electromagnetic spectrum - Wikipedia](https://upload.wikimedia.org/wikipedia/commons/1/14/EM_Spectrum_Properties_%28Amplitude_Corrected%2C_Bitmap%29.png)
+			- Podemos obter imagens a partir de ondas de diferente comprimento, normalmente cada uma possui uma utilidade e funcionamento distinto para captura do sinal e geração da imagem. Por exemplo,
+				- **Luz visível**: câmera, microscópico
+				- **Infravermelho**: visão noturna, imagem termal
+				- **Ultravioleta**: microscópio fluorescência
+				- **Raio-X**
+				- **Raio Gama**: tomografia
+				- **Micro-ondas**: radar imageador
+				- **Ondas de rádio**: ressonância magnética
+	- Outra forma são através de ondas mecânicas, como o som
+	- Outra forma são através dos microscópios eletrônicos
+	- Também é possível **gerar imagens sintéticas** através de Computação Gráfica
+	- Visão geral do processo de aquisição
+		- Temos uma *cena* do mundo real
+		- Utilizamos um sistema de imageamento/captura
+		- Existe uma fonte de energia para iluminação da cena
+		- O sistema de imageamento consegue captar a reflexão da fonte de energia nos *objetos* da cena
+			- Tais reflexões são armazenadas em um plano
+		- Depois, o resultado capturado é convertido para a imagem (digital)
+			- Amostram e Quantização
+				- *Amostragem* consiste em digitalizar os valores das coordenadas -> resolução
+				- *Quantização* consistem em digitalizar os valores da amplitude -> resolução de cor
+	- Representação de Imagens Digitais
+		- Matriz $M \times N$ onde cada elemento representa o valor da amplitude da imagem  nas posições $i \in M$ e $j \in N$
+			- $f(i, j) \in [0..L-1]$ com $L \in \mathbb{N}^+$ representando a quantidade de tons de cinza
+				- Normalmente, $L = 2^k$ para algum $k \in \mathbb{N}$
+				- $k$ é a profundidade de bits
+	- Relacionamento entre *Pixels*
+		- $4$-vizinhança: $N_4(x, y) = \{(x + 1, y), (x -1, y), (x, y + 1), (x, y - 1)\}$
+		- Vizinhos diagonais: $N_D(x,y) = \{(x - 1, y - 1), (x - 1, y + 1), (x + 1, y - 1), (x + 1, y + 1)\}$
+		- $8$-vizinhança: $N_8(x, y) = N_4(x, y) \cup N_D$
+		- Conectividade entre pixels
+			- Dado um conjunto $V$ de níveis de cinza
+			- Dizemos que dois pixels $p$ e $q$ com $f(p), f(q) \in V$ são $4$-conectados se $q \in N_4(p)$
+			- Dizemos que dois pixels $p$ e $q$ com $f(p), f(q) \in V$ são $8$-conectados se $q \in N_8(p)$
+			- Um $k$-caminho entre $p$ e $q$ é a sequência de pixels distintos $u_0, u_1, \dots, u_n$ onde:
+				- $u_0 = p$
+				- $u_n = q$
+				- $u_i$ e $u_{i-1}$ são $k$-conectados para $1 \leq i \leq n$
+				- Se $u_0 = u_n$, temos um caminho fechado.
+			- **Componentes Conexas**
+				- Seja $S$ um subconjunto de pixels de uma imagem
+				- Dois pixels $p$ e $q$ são conexos em $S$ se existe um caminho entre eles cujos pixels pertencem a $S$
+				- Um componente conexo de $S$ é um conjunto de pixels conexos em $S$ a um dado pixel $p$
+				- Se $S$ só possui um componente conexo, então $S$ é um conjunto conexo
