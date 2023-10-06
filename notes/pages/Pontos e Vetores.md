@@ -5,7 +5,7 @@
 		- $d(P, P) = 0$
 		- $d(P, Q) = d(Q, P)$
 		- $d(P, Q) \geq 0$
-		- $d(P,Q) \leq d(P, R) + d(R, Q)$7
+		- $d(P,Q) \leq d(P, R) + d(R, Q)$
 	- Circunferência de raio $r$ definida como conjunto de pontos: $P \in \{(x, y) \in V | x^2 + y^2 = r\}$
 	- A adição entre pontos é inconsistente pois é dependente no sistema de coordenadas
 		- Já a adição entre vetores é consistente!

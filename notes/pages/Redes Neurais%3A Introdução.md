@@ -1,1 +1,29 @@
-- z
+- Visão Geral da disciplina
+	- Possui como pré-requisito IA
+	- https://www.asimovinstitute.org/author/fjodorvanveen/
+	- ![](https://www.asimovinstitute.org/wp-content/uploads/2019/04/NeuralNetworkZoo20042019.png)
+	- Sempre vão surgindo novas...
+	- Objetivo da disciplina é saber quando utilizar e como trabalhar com diferentes tipos de Redes Neurais
+- Formato
+	- Prática com maior enfâse
+	- Também vamos ver os conceitos matemáticos
+	- Ao longo da disciplina, vamos introduzir PyTorch e outras ferramentas mais alto nível
+- Ementa
+	- Conceitos Iniciais -> Neurônios, Funções de Ativação, Arquiteturas, Processos de Treinamento
+	- Diferentes Redes -> Perceptron, MLP, Convolutivas
+- Tecnologias
+	- Python + PyTorch
+- Bibliografia
+	- Haykin
+	- Bishop
+	- Ian Goodfellow
+- Avaliação (ainda pode sofrer algumas alterações)
+	- 1ªVA
+		- Lista de Exercícios
+		- Mini-projetos (1 a cada 2 semanas)
+			- Exemplo: implemente Rede X
+	- 2ªVA
+		- Projeto
+		- Seminário
+	- 3ªVA
+		- Projeto
