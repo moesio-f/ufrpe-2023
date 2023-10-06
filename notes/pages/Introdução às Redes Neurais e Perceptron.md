@@ -25,7 +25,7 @@
 					- Do contrário, $h(u_t) = 0$
 			- Apenas com esse modelo simples já conseguimos implementar o funcionamento das portas lógicas AND, OR e NOT
 		- Perceptron de Rosenblatt
-			- Propôs uma nova modelagem do neurônio artificial, adicionando um *bias* $b_k$ e com maior relaxamento na função de ativação $\varphi$
+			- Propôs uma nova modelagem do neurônio artificial, adicionando um *bias* $b_k$ e com maior relaxamento na função de ativação $\varphi$, e um algoritmo para busca dos pesos (e viés)
 			- ![image.png](../assets/image_1696622340638_0.png){:height 285, :width 688}
 		- ADALINE
 		- Resolução do problema XOR
