@@ -1,0 +1,79 @@
+- **Ponto**
+	- Primitiva geométrica associada à localização
+	- Exemplo $O(0,0)$ no $\mathbb{R}^2$
+	- A função distância $d: V \times V \to \mathbb{R}$ representa a *proximidade* entre dois pontos do espaço
+		- $d(P, P) = 0$
+		- $d(P, Q) = d(Q, P)$
+		- $d(P, Q) \geq 0$
+		- $d(P,Q) \leq d(P, R) + d(R, Q)$7
+	- Circunferência de raio $r$ definida como conjunto de pontos: $P \in \{(x, y) \in V | x^2 + y^2 = r\}$
+	- A adição entre pontos é inconsistente pois é dependente no sistema de coordenadas
+		- Já a adição entre vetores é consistente!
+		- Dessa forma, é possível "aumentar" as possibilidades de se trabalhar com pontos quando definimos um vetor (ver Interpolação Linear e Combinação Baricêntrica)
+- **Vetor**
+	- Primitiva geométrica que possui *direção*, *sentido* (orientação) e *módulo*
+	- Por simplicidade, representamos um vetor $\vec{v}$ apenas pelo seu ponto final (consideramos o inicial na origem do sistema de coordenadas)
+	- Podemos utilizar pontos para representação de vetores, todavia eles possuem interpretação diferente
+		- De qualquer forma, é possível utilizar ambos conceitos de forma complementar (por exemplo, na interpolação linear)
+	- Sejam $\vec{v} = (v_1, \dots, v_n) \in \mathbb{R}^n$ e $\vec{u} = (u_1, \dots, u_n) \in \mathbb{R}^n$  vetores e $k \in \mathbb{R}$ um escalar
+		- Adição entre vetores: $\vec{v} + \vec{u} = (v_1 + u_1, \dots, v_n + u_n)$
+			- Regra do paralelograma
+		- Multiplicação por escalar: $k\vec{v} = (kv_1, \dots, kv_n)$
+			- Esticar ou diminuir (invertendo ou não o *sentido*)
+		- Produto escalar: $<,>: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$
+			- O produto escalar usual é definido como $\left<\vec{v}, \vec{u}\right> = \sum_i^n v_iu_i$
+			- Se $\left<\vec{u}, \vec{v}\right> =$, $\vec{u}$ e $\vec{v}$ são ortogonais
+		- Projeção ortogonal de $\vec{u}$ em $\vec{v}$ é o vetor $\operatorname{proj}_v^u = k\vec{v}$
+			- $k = \frac{\left<\vec{u}, \vec{v}\right>}{\left<\vec{v}, \vec{v}\right>}$
+		- Norma: $||\vec{v}|| = \sqrt{\left<\vec{v}, \vec{v}\right>}$
+			- A norma é uma função que representa o *tamanho* de um vetor
+			- Também é conhecido como *módulo* do vetor
+			- Desigualdade de Cauchy-Schwarz e triangular se aplicam à norma de vetores
+			- Através da lei dos cossenos é possível encontrar o ângulo $\alpha$ entre os vetores $\vec{u}$ e $\vec{v}$
+				- $\alpha = \arccos(\frac{\left<u, v\right>}{||\vec{u}|| \cdot ||\vec{v}||})$
+		- LATER Produto Vetorial (próxima aula)
+	- Propriedades dos vetores para quaisquer $\vec{v}, \vec{u} \in \mathbb{R}^n$ e $k_1, k_2 \in \mathbb{R}$
+		- $\vec{v} + \vec{0} = \vec{v}$
+		- $\vec{v} + -\vec{v} = \vec{0}$
+		- $\vec{u} + \vec{v} = \vec{v} + \vec{u}$
+		- $\vec{u} + (\vec{v} + \vec{w}) = (\vec{u} + \vec{v}) + \vec{w}$
+		- $1 \cdot \vec{v} = \vec{v}$
+		- $k_1(k_2\vec{v}) = (k_1k_2)\vec{v}$
+		- $k(\vec{u} + \vec{v}) = k\vec{u} + k\vec{v}$
+	- Soma de um ponto $P$ com um vetor $\vec{v}$ é definida e resulta em um novo ponto $Q$
+		- $Q = P + \vec{v} = ()$
+		- LATER adicionar formalização para isso aqui
+		  :LOGBOOK:
+		  CLOCK: [2023-10-06 Fri 15:21:45]
+		  :END:
+	- A diferença entre dois pontos $P$ e $Q$ resulta em um vetor $\vec{v}$ com origem $P$ e final em $Q$
+		- Isso é, $\vec{v} = P - Q = \overrightarrow{PQ}$
+	- **Interpolação Linear**: qualquer combinação entre os pontos $P$ e $Q$ da forma $aP + bQ$ onde $a + b = 1$ que resulta em um novo ponto $S$
+		- O ponto médio $M$ é um caso especial onde $a = b = \frac{1}{2}$
+		- Formalmente, reescrevemos essa fórmula para demonstrar que não corre uma soma entre pontos, mas sim uma operação entre ponto e vetor
+	- **Combinação Baricêntrica**: generalização da Interpolação Linear
+		- Dada uma quantidade $n$ de pontos $P_1, \dots, P_n$, uma combinação baricêntrica consiste em calcula um novo $Q = a_1P_1 + \dots + a_nP_n$ onde $a_i \in \mathbb{R}$ e $\sum_{i=1}^n a_i = 1$
+		- É possível provar que o resultado é um novo ponto através de um técnica similar ao da interpolação linear
+		- Perceba que mudar a condição $\sum_{i=1}^n a_i = 1$ para $\sum_{i=1}^n a_i = 0$ resulta em um vetor!
+	- **Coordenadas Baricêntricas**
+		- Para todo ponto do plano existe uma única combinação baricêntrica de três pontos não colineares do plano: $P = \alpha A +\beta B + \gamma C$, com $\alpha + \beta + \gamma =1$
+		- Assim, podemos definir um sistema de coordenadas baseadas nesses $3$ pontos e coeficientes
+			- Especificamente, só precisamos definir um ponto utilizando $[\alpha, \beta, \gamma]^T$
+		- Não necessariamente precisamos ter um ângulo de 90º entre as bases
+		- Fácil de localizar os pontos
+		- Conversão a partir de pontos do *Plano Cartesiano*
+			- Seja $P$ o ponto no plano cartersiano
+			- Sejam $A$, $B$ e $C$ pontos não colineares do plano cartesiano
+			- Assim, temos as seguintes informações
+				- $P = \alpha A + \beta B + \gamma C$
+				- $\alpha + \beta + \gamma = 1$
+				- $x_P = \alpha x_A + \beta x_B + \gamma x_C$
+				- $y_P = \alpha y_A + \beta y_B + \gamma y_C$
+				- A partir disso, podemos remover um dos coeficientes (i.e., reescrever como subtração)
+				- Depois, podemos representar o sistema como uma matriz
+				- Depois, basta resolvermos o sistema através da inversa
+				- A condição inicial dos pontos não serem colineares faz com que a inversa exista
+- Importância desses conceitos na Computação Gráfica: sistemas de coordenadas são de suma importância para localização dos objetos em uma cena
+	- Uma coordenada não pode ser utilizada para se referir a mais de uma localização no espaço
+	- Um objeto só pode estar uma localização na cena
+	- É importante ser possível realizar conversões entre sistemas de coordenadas sem alterar as informações contidas na cena
