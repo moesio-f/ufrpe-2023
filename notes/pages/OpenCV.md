@@ -1,0 +1,33 @@
+- Breve história
+	- Surgiu entre 1999-2008, com suporte apenas à C
+		- Intel
+		- OpenCV 1.X
+	- Entre 2008-2012, uma nova empresa assume o controle: Willow Garage
+		- Suporte à C++ (orientação à objetos)
+		- Integração em OpenCV + PCL (manipulação de nuvens de pontos 3D) + ROS (Robot Operating System, voltado à robótica)
+		- OpenCV 2.X
+	- Entre 2012-2016, mas uma mudança: OpenCV Foundation + Itseez
+		- OpenCV 3.X
+	- 2016-presente, de volta à Intel (compra da Itseez)
+		- OpenCV 4.X
+		- OpenCV 5.X está planejada para o futuro
+- Quem utiliza?
+	- Google, Intel, Honda, IBM, Yahoo, Toyota, Microsoft, Sony
+	- Aplicações
+		- Google Street View: coleta das imagens, controle de qualidade, etc
+		- NASA: expliração de Marte
+		- Robô PR2 da Willow Garage
+		- Controle de qualidade da produção de moedas na China
+- Plataformas suportadas: Windows, Linux, MacOS, Android, IOS, outras
+- Linguagens de Programação: C, C++, Python, Java
+	- Alto uso de *wrappers* para suporte à outras linguagens
+	- Nativamente, escrita em C++
+	- Outras linguagens também suportam o OpenCV
+- Módulos
+	- ![OpenCV modules - Mastering OpenCV 4 with Python [Book]](https://www.oreilly.com/api/v2/epubs/9781789344912/files/assets/2bf8b1ee-1a38-410e-ba15-b566ccfb19f2.png)
+	- **core**: estruturas de dados, operações, persistência, utilidades, e outros
+	- **highgui**: facilidades para interfaces de usuário (I/O)
+	- **imgproc**: processamento de imagens (filtros, transformações, análise estrutural, histogramas, descritores de forma, etc)
+	- **features2D**: características de uma imagem (e.g., detecção, descrição e casamento)
+	- **caliib3d**: calibração de câmera, estimação de pose, correspondência estéreo, reconstrução 3D
+	- **video**:
