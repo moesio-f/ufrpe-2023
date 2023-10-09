@@ -30,4 +30,19 @@
 	- **imgproc**: processamento de imagens (filtros, transformações, análise estrutural, histogramas, descritores de forma, etc)
 	- **features2D**: características de uma imagem (e.g., detecção, descrição e casamento)
 	- **caliib3d**: calibração de câmera, estimação de pose, correspondência estéreo, reconstrução 3D
-	- **video**:
+	- **video**: rastreamento de objeto, outros
+- Otimização: suporte à diversos aceleradores de hardware para execução performática
+	- Intel IPP
+	- Intel SSE2
+	- OpemMP
+	- ARM NEON
+	- Intel TBB
+	- NVIDIA CUDA
+	- OpenCL
+- Licença de uso: BSD
+	- Código aberto, livre para uso acadêmico e comercial
+	- BSD é  uma licença permissiva com poucas restrições
+- **Google Summer of Code**
+	- Evento do Google onde projetos/funcionalidades são sugeridos e desenvolvedores podem participar para implementação
+	- Ao final dos eventos, as funcionalidades propostas podem ser adicionadas à biblioteca/framework original
+	- Algumas funcionalidades do OpenCV surgiram de tais eventos
