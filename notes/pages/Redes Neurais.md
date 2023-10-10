@@ -1,5 +1,4 @@
 - [[Redes Neurais: Apresentação]]
 - [[Introdução às Redes Neurais e Perceptron]]
--
 - Repositório: https://github.com/moesio-f/cpp-ann
 -

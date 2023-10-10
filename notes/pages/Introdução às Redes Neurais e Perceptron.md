@@ -51,12 +51,23 @@
 		- Por exemplo, podemos fazer $w_0 = -(w_1x_1 + w_2x_2) + \eta$ com $\eta > 0 \in \mathbb{R}$
 	- E para ela ser $< 0$?
 		- A mesma ideia só que $\eta < 0$
-- Obtendo os pesos do Perceptron de Rosenblatt para um único ponto
-	- Dependendo se a classificação para esse ponto é $0$ ou $1$ caímos em algum dos dois casos considerados
-	- Sem perda de generalidade, vamos supor que esse ponto $\vec{x}$ deve ter classe positiva
+- Obtendo os pesos do Perceptron para um único ponto
+	- Dependendo se o rótulo para esse ponto é $0$ ou $1$, temos dois casos
+	- Sem perda de generalidade, vamos supor que esse ponto $\vec{x} = [1, x_1, x_2]$ deve ter classe positiva
 		- Para calcular a classe de $\vec{x}$ com os pesos $\vec{w}$ fazemos $H(\vec{w}^T\vec{x})$ (Heaviside)
 		- $H(\vec{w}^T\vec{x}) = 1 \iff \vec{w}^T\vec{x} \geq 0$
-	- Vamos supor que começamos com um $\vec{w}$ qualquer que ainda não resolve o problema
+	- Vamos supor que começamos com um $\vec{w}$ qualquer que **ainda não resolve o problema**
 	- Como podemos atualizar iterativamente os valores de $\vec{w}$ de forma que é garantido que encontramos o valor correto?
-		- Como $w_0 + w_1x_1 + w_2x_2 < 0$
--
+		- Primeiro, perceba que $w_0 + w_1x_1 + w_2x_2 < 0$
+		- Se $x_1 > 0$ e $x_2 > 0$, então
+			- Podemos atualizar $\vec{w}$ de forma proporcional a $\vec{x}$ (i.e, $\vec{w}_{t+1} = \vec{w}_t + \eta \vec{x}$)
+			- Tomando um valor $\eta > 0 \in \mathbb{R}$ grande o suficiente, $w_{i, t+1} > w_{i, t}$ e $w_{i, t+1} > 0$
+			- No final das contas, $\vec{w}^T\vec{x} \geq 0$
+		- Se $x_1 < 0$ e $x_2 < 0$, então
+			- Equivalente ao caso anterior, entretanto os novos valores de $\vec{w}$ serão menores que os anteriores e $< 0$
+		- Se $x_1 < 0$ e $x_2 > 0$, então
+			- Equivalente aos dois casos anteriores, todavia uma das componentes será positiva e a outra negativa
+		- Visto que nos 3 casos conseguimos realizar atualizações usando $\vec{x}$, podemos definir uma regra de atualização global no seguinte formato: $\vec{w}_{t+1} = \vec{w}_{t} + \eta \vec{x}$, com $\eta \in \mathbb{R}$
+		- Para uma atualização iterativa, podemos usar a regra definida com um valor $0 < \eta \leq 1$ e com a condição de parada $w_0 + w_1x_1 + w_2x_2 \geq 0$
+	- No final de todo o processo, a regra de atualização busca tornar $w_ix_i$ com o sinal correto para satisfazer a classificação correta
+	- Uma prova de convergência pode ser definida utilizando essa regra de atualização e múltiplos pontos $\vec{x}_i$ com classes positivas e negativas
