@@ -42,3 +42,37 @@
 			- O **melhor** nesse caso pode ser definido matematicamente de diferentes formas
 			- Por exemplo, podemos utilizar o caso da *regressão linear*
 			- Também podemos utilizar diferentes outras *métricas*
+- Atualização do Perceptron
+  collapsed:: true
+	- Seja $f: \mathbb{R} \to \{0, 1\}$ a função de ativação degrau
+	- Seja $\vec{w} = [w_0, w_1, w_2] \in \mathbb{R}^3$ os pesos de um Perceptron
+	- Seja $\vec{x} = [1, x_1, x_2] \in \mathbb{R}^3$ um ponto qualquer
+	- Seja $u = \vec{w}^T\vec{x}$
+	- Inicialmente, $f(u) = 0$
+		- Isso implica que $w_0 + w_1x_1 + w_2x_2 < 0 \iff \vec{w}^T\vec{x} < 0$
+	- Queremos atualizar $\vec{w}$ de forma que $f(u)$ se torne $1$
+		- Ou seja, queremos que $\vec{w}^T\vec{x} \geq 0$
+		- Dessa forma, queremos encontrar $\Delta\vec{w}$ tal que $(\Delta\vec{w}+\vec{w})^T\vec{x} \geq 0$
+			- Qual um exemplo de $\Delta\vec{w}$ que resolve esse problema?
+			- $\Delta w_0 + w_0 + (\Delta w_1 + w_1)x_1 + (\Delta w_2 + w_2)x_2$
+		- Como podemos fazer isso?
+			- Seja $K > 0 \in \mathbb{R}$
+			- Assim, $\vec{w}^T\vec{x} + K < 0 + K$
+- Como encontrar os coeficientes de uma linha $w_0 + w_1x_1 + w_2x_2 = 0$ que intercepte o ponto $[1, x_1, x_2]$?
+	- A resposta é que existem infinitas linhas que satisfazem essa equação!
+	- Podemos escolher quaisquer $w_{\{1, 2\}} \in \mathbb{R}$ e conseguimos selecionar o último componente como $w_0 = - (w_1x_1 + w_2x_2)$
+	- Dessa forma, podemos utilizar qualquer estratégia para encontrar esses valores
+	- Agora, como podemos encontrar os valores de $w_i$ de forma que a equação original seja $> 0$?
+		- Estamos resolvendo essencialmente o mesmo problema, basta escolhermos $w_{\{1, 2\}} \in \mathbb{R}$ arbitrários e depois selecionar um $w_0 > -(w_1x_1 + w_2x_2)$
+		- Por exemplo, podemos fazer $w_0 = -(w_1x_1 + w_2x_2) + \eta$ com $\eta > 0 \in \mathbb{R}$
+	- E para ela ser $< 0$?
+		- A mesma ideia só que $\eta < 0$
+- Obtendo os pesos do Perceptron de Rosenblatt para um único ponto
+	- Dependendo se a classificação para esse ponto é $0$ ou $1$ caímos em algum dos dois casos considerados
+	- Sem perda de generalidade, vamos supor que esse ponto $\vec{x}$ deve ter classe positiva
+		- Para calcular a classe de $\vec{x}$ com os pesos $\vec{w}$ fazemos $H(\vec{w}^T\vec{x})$ (Heaviside)
+	- Vamos supor que começamos com um $\vec{w}$ qualquer que ainda não resolve o problema
+	- Como podemos atualizar iterativamente os valores de $\vec{w}$ de forma que é garantido que encontramos o valor correto?
+		- Qual são os valores de $w$ que resolvem o problema com certeza?
+			- LATER
+-
