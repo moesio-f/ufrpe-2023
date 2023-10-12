@@ -1,0 +1,10 @@
+- O comando básico para criação de variáveis é o [[set(...)]]
+- Para obtermos o valor de uma variável, fazemos `${VariableName}`
+	- Caso a variável não tenha sido definida, uma string vazia é retornada
+- Para remover uma variável, podemos ou utilizar o [[set(...)]] sem passar um valor ou utilizar o comando [[unset(...)]]
+- Variáveis de Ambiente
+	- Podemos obter o valor de uma variável de ambiente fazendo `$ENV{VariableName}`
+	- Utilizando essa sintaxe, também podemos realizar o set/unset usando `ENV{VariableName}`
+- Variáveis de Cache
+	- > In addition to normal variables discussed above, CMake also supports cache variables. Unlike normal variables which have a lifetime limited to the processing of the `CMakeLists.txt` file, cache variables are stored in the special file called `CMakeCache.txt` in the build directory and they persist between CMake runs. Once set, cache variables remain set until something explicitly removes them from the cache. The value of a cache variable is retrieved in exactly the same way as a normal variable (i.e. with the `${myVar}` form), but the set() command is different when used to set a cache variable
+	- ((65283658-1b7c-46c5-8736-f983a1ef24e4))

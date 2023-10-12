@@ -1,0 +1,7 @@
+- LATER
+- **Compilação**
+	- ![image.png](../assets/image_1697127840788_0.png)
+- **Interpretação**
+	- ![image.png](../assets/image_1697127861744_0.png)
+- **Híbrido**
+	- ![image.png](../assets/image_1697127882349_0.png)
