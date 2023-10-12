@@ -1,0 +1,4 @@
+- Existem dois comandos principais para trabalhar com múltiplos diretórios
+	- [[add_subdirectory(...)]]
+	- [[include(...)]]
+- Ambos comandos permitem trazer conteúdos de outros arquivos/diretórios para o contexto de *build* atual

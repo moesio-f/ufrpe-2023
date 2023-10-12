@@ -12,7 +12,7 @@
 		- Normalmente não é versionado (lembrar de adicionar no gitignore caso o repositório completo seja versionado)
 - [[Visão Geral do CMakeLists]]
 - [[Variáveis no CMake]]
--
+- [[Múltiplos Diretórios com CMake]]
 - Comandos
 	- [[add_executable(...)]]
 	- [[add_library(...)]]
@@ -20,6 +20,7 @@
 	- [[set(...)]]
 	- [[unset(...)]]
 	- [[message(...)]]
-	-
+	- [[add_subdirectory(...)]]
+	- [[include(...)]]
 - Referências
 	- Professional CMake: A Practical Guide, Scott (2022)

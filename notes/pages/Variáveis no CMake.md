@@ -8,3 +8,21 @@
 - Variáveis de Cache
 	- > In addition to normal variables discussed above, CMake also supports cache variables. Unlike normal variables which have a lifetime limited to the processing of the `CMakeLists.txt` file, cache variables are stored in the special file called `CMakeCache.txt` in the build directory and they persist between CMake runs. Once set, cache variables remain set until something explicitly removes them from the cache. The value of a cache variable is retrieved in exactly the same way as a normal variable (i.e. with the `${myVar}` form), but the set() command is different when used to set a cache variable
 	- ((65283658-1b7c-46c5-8736-f983a1ef24e4))
+- Variáveis gerenciadas pelo CMake
+	- `CMAKE_SOURCE_DIR`: The top-most directory of the source tree. O valor dessa variável nunca muda.
+	- `CMAKE_BINARY_DIR`: The top-most directory of the build tree. O valor dessa variável nunca muda.
+	- `CMAKE_CURRENT_SOURCE_DIR`: o diretório do `CMakeLists.txt` sendo processado no momento. O valor dessa variável pode mudar quando o [[add_subdirectory(...)]] é invocado (após o processamento, volta para seu valor anterior)
+	- `CMAKE_CURRENT_BINARY_DIR`: o diretório de build do `CMakeLists.txt` sendo processado no momento. Segue as mesmas definições da variável anterior
+	- `CMAKE_CURRENT_LIST_DIR`: analogous to `CMAKE_CURRENT_SOURCE_DIR` except it will be updated when processing the included file. This is the variable to use where the directory of the current file being processed is required, no matter how it has been added to the build. It will always hold an absolute path
+	- `CMAKE_CURRENT_LIST_FILE`: Always gives the name of the file currently being processed. It always holds an absolute path to the file, not just the file name.
+	- `CMAKE_CURRENT_LIST_LINE`: Holds the line number of the file currently being processed. This variable is rarely needed, but may prove useful in some debugging scenarios.
+	- `PROJECT_SOURCE_DIR`: The source directory of the most recent call to `project(...)` in the current scope or any parent scope.
+	- `PROJECT_BINARY_DIR`: The build directory corresponding to the source directory defined by `PROJECT_SOURCE_DIR`.
+	- `projectName_SOURCE_DIR`: The source directory of the most recent call to `project(projectName)` in the current scope or any parent scope.
+	- `projectName_BINARY_DIR`: o mesmo que variável anterior, todavia é o diretório de build.
+- Escopo
+	- As variáveis do CMake definidas possuem como escopo o `CMakeLists.txt` atualmente em processamento, alguns comandos podem criar um novo escopo
+	- Os escopos são organizados de forma hierárquica, assim as variáveis do escopo pai continuam visíveis para os filhos
+		- Valores do escopo filho não são visíveis para ao escopo pai
+		- Mudanças em variáveis no escopo filho não são visíveis para o escopo pai
+			- Essa regra vale mesmo se a variável existir no escopo pai

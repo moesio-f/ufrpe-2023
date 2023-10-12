@@ -15,4 +15,3 @@
 			- Normalmente, são plugins ou componentes opcionais
 		- Uma prática comum é não definir o tipo de construção, a não ser que o projeto tenha alguma particularidade
 - Para mais informações sobre Linguagens Compiladas, acessar [[Implementação de LPs]]
--
