@@ -1,0 +1,11 @@
+- O CMake é um conjunto de ferramentas para automatização do processo de *build* de softwares escritos em diferentes linguagens
+	- ![image.png](../assets/image_1697121666382_0.png)
+	- Essencialmente, o CMake provê uma forma de configurar o processo de *build*, *test* e *package* de softwares
+	- O processo de *build* é realizado por uma ferramenta específica como *make* e *ninja*
+- Organização geral de um projeto usando CMake
+	- **<src>**
+		- **CMakeLists.txt**: define o que deve ser construído e como
+		- **<files and directories>**: códigos fonte
+	- **<build>**: diretório para armazenamento de executáveis, bibliotecas, saídas dos testes e pacotes
+		- Pode ser *in-source* (não recomendado) ou *out-source*
+-
