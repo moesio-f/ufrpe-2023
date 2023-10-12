@@ -12,6 +12,7 @@
 		- Normalmente não é versionado (lembrar de adicionar no gitignore caso o repositório completo seja versionado)
 - [[Visão Geral do CMakeLists]]
 - [[Variáveis no CMake]]
+-
 - Comandos
 	- [[add_executable(...)]]
 	- [[add_library(...)]]
