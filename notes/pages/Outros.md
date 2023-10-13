@@ -1,4 +1,3 @@
 - [[CMake]]
 - [[C Language]]
 - [[C++ Language]]
-- [[SDL2]]
