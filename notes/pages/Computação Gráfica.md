@@ -1,4 +1,5 @@
 - [[CG: Apresentação]]
 - [[Pontos e Vetores]]
+- [[Pipeline de Renderização]]
 - Repositório: https://github.com/moesio-f/classic-cg
 -
