@@ -1,0 +1,6 @@
+- Referência: https://www.scratchapixel.com/lessons/3d-basic-rendering/computing-pixel-coordinates-of-3d-point/mathematics-computing-2d-coordinates-of-3d-points.html
+- **Object space**: sistema de coordenados único para o objeto
+- **World space**: sistema de coordenadas utilizado para descrição global da cena
+	- $\mathbb{R}^3$ com origem em $[0, 0, 0]$
+	- ![](https://www.scratchapixel.com/images/perspective-matrix/coordsys1.png?)
+-

@@ -18,7 +18,6 @@
 		- *World space*: sistema de coordenadas que relaciona os múltiplos objetos em uma cena
 		- *Camera/eye space*: sistema de coordenadas que alinha os eixos $x$, $y$ e $z$ à câmera
 		- *Window Space*: sistema de coordenadas relacionados com o *viewport*
-		-
 - > Once a model’s vertices have been clipped and transformed into window space, the GPU must determine what pixels in the viewport are covered by each graphics primitive. The process of filling in the horizontal spans of pixels belonging to a primitive is called **rasterization**. The GPU calculates the depth, interpolated vertex colors, and interpolated texture coordinates for each pixel. This information, combined with the location of the pixel itself, is called a **fragment**.
 	- ![image.png](../assets/image_1697297606730_0.png)
 	- ![image.png](../assets/image_1697297677371_0.png)

@@ -116,7 +116,7 @@
  ;; Publish all pages within the Graph
  ;; Regardless of whether individual pages have been marked as public.
  ;; Default value: false
- ;; :publishing/all-pages-public? false
+:publishing/all-pages-public? true
 
  ;; Define the default home page and sidebar status.
  ;; If unspecified, the journal page will be loaded on startup and the right sidebar will stay hidden.
@@ -130,7 +130,7 @@
  ;; 1. Set "Changelog" as the home page and display "Contents" in the right sidebar:
  ;; :default-home {:page "Changelog", :sidebar "Contents"}
  ;; 2. Set "Jun 3rd, 2021" as the home page without the right sidebar:
- ;; :default-home {:page "Jun 3rd, 2021"}
+:default-home {:page "Contents"}
  ;; 3. Set "home" as the home page and display multiple pages in the right sidebar:
  ;; :default-home {:page "home", :sidebar ["Page A" "Page B"]}
 
@@ -411,4 +411,8 @@
  ;;   - :triple-lowbar (default)
  ;;      ;use triple underscore `___` for slash `/` in page title
  ;;      ;use Percent-encoding for other invalid characters
- :file/name-format :triple-lowbar}
+ :file/name-format :triple-lowbar
+ :graph/settings {:orphan-pages? true
+ :excluded-pages? true
+ :journal? true
+ :builtin-pages? true}}
