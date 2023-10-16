@@ -1,4 +1,5 @@
 - [[BDNC: Apresentação]]
 - [[Uma Introdução aos BDNCs]]
 - [[NoSQL e NewSQL]]
+- [[Definição do Projeto]]
 -

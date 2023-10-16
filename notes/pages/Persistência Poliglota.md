@@ -22,5 +22,4 @@
 	- Analisar o melhor modelo para cada um dos casos (e.g., Documento, Chave-Valor, Colunar, Grafos)
 	- Implementação do modelo em um SGBD
 	- Implantação em Microsserviços
-- Projeto de um E-Commerce
-	-
+-

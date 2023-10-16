@@ -1,0 +1,12 @@
+- **Atividades**
+	- Escolher um domínio/problema/aplicação
+	- Criação do modelo conceito (ER, classe, UML, etc)
+		- Nesse contexto, já podemos pensar na separação entre os microsserviços
+	- Mapeamento para agregados
+	- Mapeamento de Agregado para modelo NoSQL escolhido
+- Domínios
+	- **Filmes** -> recomendação, relacionamento, etc
+	- **Livro** -> Sistema de livros, venda, etc
+	- **Artigo** -> Connected Papers, Análise Sistemática
+	- **Código** -> sistema de versionamento, análise trechos de códigos
+	- **Jogos** ->
