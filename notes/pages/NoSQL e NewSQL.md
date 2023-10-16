@@ -34,7 +34,7 @@
 	- Persistência poliglota para flexibilização do ACID
 		- Teorema CAP
 		- Apesar do trade-off, também é buscado equilibrar os requisitos em harmonia
-		- A persistência poliglota utiliza mais de um *tipo* de armazenamento de dados
+		- A [[Persistência Poliglota]] utiliza mais de um *tipo* de armazenamento de dados
 			- Parte no modelo Relacional
 			- Parte no modelo baseado em Documentos
 			- Parte no modelo baseado em Grafos
@@ -62,7 +62,6 @@
 			- CouchDB, Cassandra: $P + A$
 			- Ao longo do tempo, as coisas mudam
 - SQL vs NoSQL
-  collapsed:: true
 	- **Normalização** fica de lado, permitimos duplicidade, falta de consistência
 		- Dentro dos limites requisitados pelo sistema
 	- Novo modelo de **consulta**: filtros, scripts, etc
@@ -77,11 +76,9 @@
 				- No exemplo anterior, *B* sempre é escrito e recuperado junto à *C*
 				- Quando essa característica não é desejada, não realizamos o aninhamento
 - Até agora, o termo NoSQL parece ser usado como um termo *umbrella* para diversos DBMS não relacionais
-  collapsed:: true
 	- Lista de DBMSs não relacionais: https://hostingdata.co.uk/nosql-database/
 	- No geral, cada banco utiliza um *data model* particular
 - Visão geral de *Data Models* para NoSQL
-  collapsed:: true
 	- ![Boosting Performance with Indexing in NoSQL Databases: A Deep Dive | by  Saeed Mohajeryami, PhD | Level Up Coding](https://miro.medium.com/v2/resize:fit:1400/0*l2FRaRHZyO9PwPW0.png)
 	- **Chave-valor**
 		- Modelo extremamente simples, não recomendado para todos os cenários
@@ -112,7 +109,7 @@
 		- Um dos pontos principais de design para BDs com esse modelo é quando/como utilizar sub-documentos
 		- Exemplo de DBMS: *Firestore*
 	- **Grafo**
-		- ![Why Experts See Graph Databases Headed for Mainstream Use - eWEEK](https://www.eweek.com/wp-content/uploads/2020/10/GraphDB.ecosystem.jpg)
+		- ![Why Experts See Graph Databases Headed for Mainstream Use - eWEEK](https://www.eweek.com/wp-content/uploads/2020/10/GraphDB.ecosystem.jpg){:height 440, :width 648}
 		- Apropriada para dados altamente interconectados
 			- Interconectividade dos dados é tão ou mais importante quanto os dados em si
 			- A importância é no **relacionamento**

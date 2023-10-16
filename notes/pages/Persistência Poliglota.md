@@ -1,0 +1,26 @@
+- No geral, a ideia é permitir o uso de múltiplos SGBDs para armazenar os dados em seu melhor formato
+	- Por exemplo, em um e-commerce podemos ter:
+		- User Sessions -> **Redis** (chave-valor)
+		- Financial Data -> Relacional
+		- Shopping Cart -> **Riak** (chave-valor)
+		- Recommendations -> **Neo4J** (grafo)
+		- Product Catalog -> **MongoDB** (documentos)
+		- Reporting -> Relacional
+		- Analytics -> **Cassandra** (colunar)
+		- User Activity Logs -> **Cassandra** (colunar)
+- Persistência Poliglota surge no contexto de *microsserviços*
+	- Em contraste aos sistemas monolíticos, em sistemas baseados em microsserviços é comum que cada serviço possua seu próprio Banco de Dados
+	- Banco de Dados por aplicação e relativo às necessidades daquela aplicação/módulo
+- O Banco de Dados não pode ser o *gargalo* da aplicação/solução
+- Na cadeira, não precisamos abrir mão do SQL, o intuito é utilizá-lo em conjunto com outros
+- No geral, utilizar essas soluções torna a solução mais "cara"
+	- +Máquinas, +Qualificação, +Infra
+	- O retorno vem em estabilidade, performance, segurança dos dados, escalabilidade, disponibilidade
+- Projeto para Sistemas Poliglotas: guiados em alguns pontos
+	- Entender bem a arquitetura informação
+	- Conhecer as alternativas de persistência
+	- Analisar o melhor modelo para cada um dos casos (e.g., Documento, Chave-Valor, Colunar, Grafos)
+	- Implementação do modelo em um SGBD
+	- Implantação em Microsserviços
+- Projeto de um E-Commerce
+	-

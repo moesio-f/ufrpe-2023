@@ -63,4 +63,8 @@
 		  ```json
 		  
 		  ```
-		- Próxima aula: avançamos essa ideia para os modelos de dados
+		- Modelagem em Grafo
+			- LATER adicionar modelagem em grafos
+			- Um ponto interessante, variáveis categóricas podem virar um *nó*
+				- Facilita o processo de busca e navegação
+				- No caso do jogo, se os *rounds* tivessem um tipo (e.g., ataque/defesa) ele viraria um novo nó
