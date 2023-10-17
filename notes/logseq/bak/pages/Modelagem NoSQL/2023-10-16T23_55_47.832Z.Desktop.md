@@ -1,0 +1,66 @@
+- ![Guillaume Cabanac (@gcabanac@sciences.re) on X: "#SQL says "Stop following  me, you fucking freaks!" to Key-Value, Big Table et al.  http://t.co/HqdUDZNjt4 #BigData http://t.co/j0iNsyS153" / X](https://pbs.twimg.com/media/Bv91DRKIQAEC77J.png)
+- Em geral, não temos uma formalização como no Relacional (ER -> Relacional), todavia o geral continua o mesmo
+	- Começamos com um modelo conceitual
+	- Depois, fazemos a "tradução" para o modelo de implementação
+- **Técnicas Conceituais**
+	- ![NoSQL Data Modeling Techniques – Highly Scalable Blog](https://highlyscalable.files.wordpress.com/2012/02/atomic-aggregate1.png)
+	- **Desnormalização**
+		- Cópia do mesmo dado em vários documentos/tabelas para simplificar e otimizar o processamento de consultados ou encapsular todos os dados necessários em um único objeto
+	- **Agregados**
+		- A maioria dos NoSQL permitem *soft-schemas*, permitindo formar classes de entidades com estruturas internas complexas (aninhadas) e com pequenas variações interna entre entidades
+		- ![NoSQL Databases: An Overview | Thoughtworks](https://www.thoughtworks.com/content/dam/thoughtworks/images/photography/inline-image/insights/blog/data-science-and-analytics/blg_inline_nosql_databases_overview_01.png)
+	- **Application Side Joins**
+		- Junções não costumam ser suportados por NoSQLs
+		- NoSQLs costumam ser "question-oriented"
+		- Dessa forma, se surgir a necessidade de responder mais de uma pergunta, a junção é de responsabilidade de aplicação e não do BD
+- Técnicas de Modelagem Geral
+	- **Atomic Aggregates**: tratar um *agregado* como um objeto único
+		- Gravação e recuperação são do objeto todo, não das partes internas
+		- Se tiver necessidade de tal funcionalidade, é responsabilidade da aplicação
+	- **Enumerable Keys**
+		- Permitir que as chaves/identificadores sejam enumeráveis
+		- Por exemplo, "track_1", "track_2", ... no lugar de "tracks"
+			- Depende do projeto!
+	- **Dimensionality Reduction**: redução da dimensionalidade de dados multi-dimensionais
+	- **Index Table**: análogo de visões materializadas em relacionais
+		- Conjunto de informações "curados"
+	- **Composite Key Index**
+		- Uso de índices (chaves) multi-dimensionais para facilitar a interação com o banco
+		- Por exemplo, State:City:UserID é uma chave composta/multi-dimensional
+		- Essa estratégia permite o uso de *partial key match*
+- Voltando para a visão geral dos modelos de dados
+	- **Conceitual**: abstração de alto nível (e.g., diagramas ER, diagramas UML, desenhos, etc)
+	- **Lógico**: um dos modelos de dado conhecidos (e.g., documento, chave-valor, grafo, etc)
+		- É comum utilizar a técnica de *agregados* nessa etapa
+		- Outra técnica existentes é o *Particionamento de Agregados*
+			- Decisão entre: todo atômico ou partes menores atômicas?
+			- Se o agregado for pequeno ou todos/maioria do dados são acessados ou modificados juntamente, eles devem ser uma única entrada
+			- Já o particionamento deve ocorrer se ele for grande ou existirem operações que só manipulam uma parte específica do agregado
+		- Boa prática: sempre responder a pergunta "qual tipo de consultados vamos receber/realizar?"
+	- **Físico**: implementação (específico de cada SGBD)
+	- O processo em geral é o mesmo, todavia temos sistemas com necessidades diferentes!
+- Exercício de Modelagem
+	- Domínio é um jogo PvP multi-jogador organizado em partidas com múltiplos rounds
+	- Podemos trazer para um contexto de jogos que conhecemos
+	- O objetivo do exercício é projetar um Banco de Dados utilizando todos os modelos de dados NoSQL que estudamos até o momento
+	- Objetivo inicial: podemos pensar em um agregado (já temos um modelo conceitual)
+		- Considerando uma plataforma online de Xadrez
+		- Nesse domínio, talvez seja mais interessante orientado ao Jogador
+			- Perfil, quanto eu ganhei, quanto eu perdi, etc
+		- Quais consultas?
+			- Quantos jogos eu ganhei/perdi?
+			- Quais partidas eu joguei?
+			- Visualizar informação pra um jogo em específico
+				- Quais foram os rounds?
+				- Quais foram meus movimentos?
+				- Qual foi o resultado final?
+		- Quais escritas?
+			- Escrever informações do usuário
+			- Escrever informações um jogo
+				- Podemos escrever só pra um round (algum movimento lá dentro)
+				- Podemos escrever uma informação do jogo (placa atual, etc)
+		- LATER Modelagem inicial
+		  ```json
+		  
+		  ```
+		- Próxima aula: avançamos essa ideia para os modelos de dados
