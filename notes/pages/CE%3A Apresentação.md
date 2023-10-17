@@ -1,0 +1,17 @@
+- Disciplina voltada à atividades práticas de implementação de algoritmos e ter contato com a área de Computação Evolucionária
+	- O objetivo da cadeira é compreender mais sobre a área de otimização
+	- Inspirações biológicas em CE não são arbitrárias, existem motivos para escolha
+	- Algoritmos evolucionários no geral são algoritmos de busca para encontrar uma *solução ótima* para o problema
+- Material disponível no Classroom
+- Programa
+	- Imersão em Otimização (tipos de problema, definição, etc)
+	- Computação Evolucionária no Geral
+	- 3 Algoritmos Principais (Algoritmos Genéticos, Evolução Diferencial, ?)
+	- Computação Evolucionária no contexto mono e multi-objetivo
+- Avaliação
+	- Listas de Exercícios
+	- Implementação de Artigos
+	- Projeto + Relatório Final
+		- Aplicação de algoritmos de otimização em domínios reais/competição
+- Terça-feira assíncrono, Quinta-feira presencial
+	- Terça para desenvolvimento das listas e projetos

@@ -1,4 +1,6 @@
 - [[Redes Neurais: Apresentação]]
 - [[Introdução às Redes Neurais e Perceptron]]
+- [[Gradient Descent e MLP]]
 - Repositório: https://github.com/moesio-f/cpp-ann
+-
 -

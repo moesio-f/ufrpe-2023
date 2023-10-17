@@ -1,0 +1,13 @@
+- [[Funções de Erro]]: medir o quão "errado" está o modelo quando comparado com o *correto*
+- Algumas definições
+	- **Época**: passagem completa por dataset
+	- **Iteração**: uma atualização nos pesos
+	- **Batch**: utilizamos múltiplas várias amostras para a *iteração*
+- Gradient Descent
+	- Atualização dos pesos de uma rede no sentido contrário ao *gradiente* da função objetiva $\mathcal{L}$
+	- O objetivo é fazer
+- MLP: Multi-layer Perceptron
+	- Permite combinar diferentes retas para determinação das regiões de *fronteiras*
+	- Intuitivamente, cada neurônio aprender uma *parte* da região de fronteira
+		- A combinação das saídas de um neurônio para entradas à outros permite a construção de regiões mais complexas
+	- Estrutura: Camada de Entrada + Hidden Layers + Camada de Saída

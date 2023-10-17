@@ -1,0 +1,22 @@
+- Existem diferentes funções que podem ser utilizadas para esses cálculos
+- A **quantidade** de erros pode ser utilizada para problemas de classificação
+	- Apesar de simples, possui algumas limitações na quantidade de informações que essa função carrega
+	- Por exemplo, podem existir múltiplas instâncias de parâmetros que produzem a mesma quantidade de erros
+	- Uma função de erro *real* permite fazer comparações mais "precisas"
+- Maximum Likelihood
+	- Realiza o produto de todas as probabilidade
+	- Tende a $0$ quanto $i$ tende a infinito
+- Cross Entropy
+	- Resolve a desvantagem do Maximum Likelihood
+	- Entropia é uma medida de incerteza sobre uma distribuição $q(y)$
+		- $H(p) = - \sum_c p(y_c)\log(p(y_c))$
+- **Erro Empírico** (função de custo, função objetiva)
+	- A média do erro para todos os exemplos presentes na base de dados
+	- Seja $\mathcal{L}$ a função de erro utilizada
+	- A função objetiva é definida como $\frac{1}{n}\sum_i^n \mathcal{L}(f(\bm{\mathrm{x}}; W_t), y)$
+		- $f(x; W_t)$ é a saída da rede utilizando os pesos no tempo $t$
+		- $y$ são as saídas que deveriam ser produzidas por $f$
+		- Essencialmente, esse é o erro médio
+- Existem problemas que a função de erro $\mathcal{L}$ possui componentes *regressão* e de *classificação*
+	- Por exemplo, um modelo conjunto para detecção de objetos precisa descobrir a posição do *bounding box* e depois a *classe*
+-
