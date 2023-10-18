@@ -1,0 +1,30 @@
+- Versões
+	- Database
+	- AlluraDB: versão em nuvem
+	- Graph Data Science: algoritmos para manipulação dos grafos
+- Ferramentas
+	- **Bloom**: interface de visualização
+	- **Browser**: interface de administrador
+	- **Data Importer**: permite importar dados oriundos de outros bancos (e.g., SQL)
+	- **Desktop**: servidor de SGBD, ao instalar essa ferramenta as demais também são adicionadas
+- Modelo de Grafos com Neo4j
+	- **Label** -> define um *tipo* de nó
+		- Um dado tipo de nó pode possuir atributos
+	- Relacionamentos entre nós podem possuir atributos
+	- As buscas (*queries*) são realizadas através da navegação do grafo
+- **Consistência**
+	- Dentro de um único servidor é compatível com ACID
+	- Utilizam *transações* para modificações/inserções
+	- Cabe ressaltar a *consistência eventual* quando em um ambiente *clusterizado*
+		- É possível configurar os parâmetros de replicação e consistência
+- **Disponibilidade** (Availability)
+	- Alta disponibilidade através da *replicação*
+		- Infinite Graph e FlockDB fornecem armazenamento distribuídos para os nós
+	- Gravações são sincronizadas (e confirmadas) com um nó primário e propagadas aos secundários
+		- Utiliza o *Zookeeper* para registrar Ids da última transação persistida em cada nó secundário e cada nó primário atual
+		- É possível escolher se os nós secundários são read-only ou não
+			- Se apenas read-only, o objetivo é aumentar a disponibilidade de leitura
+- Escalabilidade
+	- Nós e relacionamentos em uso são armazenados na RAM
+	- Maior disponibilidade de leitura adicionado mais nós secundários read-only
+-
