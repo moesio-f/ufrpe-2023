@@ -6,7 +6,27 @@
 	- Mapeamento de Agregado para modelo NoSQL escolhido
 - Domínios
 	- **Filmes** -> recomendação, relacionamento, etc
-	- **Livro** -> Sistema de livros, venda, etc
+	- **Livro** -> Livrarias digitais, venda, etc
 	- **Artigo** -> Connected Papers, Análise Sistemática
 	- **Código** -> sistema de versionamento, análise trechos de códigos
-	- **Jogos** ->
+	- **Jogos** -> Steam, visualização de jogos por gênero, desenvolvedora, etc
+		- Moésio: sistema para gerenciamento de jogos digitais
+			- Acompanhamento da sua biblioteca
+			- Busca por jogos similares
+			- Busca Full-Text
+			- Rede de jogos para amigos
+			- Acompanhamento de preço/plataformas disponíveis (pegada gg.deals)
+- *Sugestão*: voltar o seminário e oficina em uma atividade prática voltada para recomendação
+	- Oficinas podem ser voltadas a parte prática no nosso caso
+	- Também podemos tratar sobre modelagem
+	- Zenodo e Kaggle podem ter alguns datasets interessantes para trabalharmos tanto na modelagem
+	- Podemos usar o Neo4j ou outras variações
+- Já podemos começar pesquisando sobre uma ou mais bases de dados para utilizarmos no projeto
+	- Se encontrarmos um conjunto interessante, podemos selecionar
+	- Do contrário, podemos utilizar dados fictícios
+- Com relação ao cronograma, a ideia é que podemos trabalhar durante o recesso e na volta do período realizamos as entregas
+	- Podemos ter algumas entregas antes do recesso
+- Opções de SGBD
+	- NebulaGraph
+	- Neo4j
+	-
