@@ -3,4 +3,3 @@
 - [[Fundamentos de Imagems]]
 - [[OpenCV]]
 - Repositório: https://github.com/moesio-f/prost
--
