@@ -1,0 +1,22 @@
+- Modelo matemático que permite representar cores através de um vetor multi-dimensional
+	- O conjunto de cores representáveis é denominado *espaço de cores* ou *gamute*
+- Famílias de Sistemas de Cores
+	- Modelos Fisiológicos
+		- Baseado no funcionamento da Visão Humana: cones e bastonetes
+			- 3 tipos de cones principais com sensibilidades às cores *vermelho*, *verde* e *azual*
+			- Curiosidade: conversão RGB para tons de cinza dá maior peso para o verde, que é a cor que os cones são mais sensíveis
+	- Modelos baseado em medidas físicas
+		- Baseia-se na reflectância espectral -> filtro das três cores primárias
+		- Exemplo: CIEXYZ
+	- Modelos de sensações oponentes
+		- Baseia-se na no processo da percepção visual humana nas camadas mais altas do cérebo
+		- Interação de pares de células oponentes vermelho-verde, azul-amarelo e preto-branco
+		- Exemplo: CIELAB
+	- Modelos psicofísicos
+		- Baseia-se nas percepções subjetivas do ser humano
+		- Exemplo: HSV
+- Principais Sistemas de Cores
+	- RGB -> $C = \{R, G, B\} \in [0..255]^3$ ou
+		- Modelo aditivo
+		- Soma de luzes de diferentes cores
+		-

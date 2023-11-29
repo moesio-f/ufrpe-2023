@@ -2,5 +2,7 @@
 - [[Pontos e Vetores]]
 - [[Pipeline de Renderização]]
 - [[World/Object Space to ]]
+- [[Sistema de Cor]]
+-
 - Repositório: https://github.com/moesio-f/classic-cg
 -
