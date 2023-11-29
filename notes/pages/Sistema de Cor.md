@@ -16,7 +16,45 @@
 		- Baseia-se nas percepções subjetivas do ser humano
 		- Exemplo: HSV
 - Principais Sistemas de Cores
-	- RGB -> $C = \{R, G, B\} \in [0..255]^3$ ou
+	- RGB -> $C = (R, G, B) \in [0..255]^3$
 		- Modelo aditivo
 		- Soma de luzes de diferentes cores
+		- Cubo RGB -> $(R, G, B) \in [0, 1]^3$
+		- Utilizado em monitores de vídeo, todavia não é simples para os seres humanos descreverem
+	- CMY -> $C = (C, M, Y) \in [0..255]^3$
+		- Dual do RGB, modelo subtrativo
+		- Mistura de pigmentos de diferentes cores
+			- Pigmentos subtraem um determinado espectro de luz e fletem um outro espectro, que determina sua cor
+		- Sofre do mesmo problema do RGB
+	- CMYK
+		- Adiciona um novo pigmento para o preto (K)
+		- Normalmente utilizado em Impressoras
+		- Essencialmente, utiliza o mesmo sistema do CMY todavia reduz a magnitude de cada uma das cores originais para o novo canal (K)
+		- Sofre do mesmo problema que o RGB
+	- HSV -> Hue (Matiz), Saturation (Saturação), Value (Valor)
+		- Cilindro HSV
+		- Matiz/Crominância: cor pura
+		- Saturação: pureza com relação ao cinza
+		- Value: acromático, quantidade de luz emitida ou refletida (luminância)
+		- Sistema de cor perceptual
+	- YUV, YCbCr, YPbPr, YIQ
+		- Crominância representada por dois componentes
+		- Único componente para luminância
+		- Sistemas de cor perceptuais
+		- Surgiu com o advento da televisão em cores
+			- Necessidade de ter um sistema retro-compatível com televisões preto e branco
+	- CIEXYZ
+		- Sistema de cores capaz de representar todas as cores visíveis ao ser humano comum
+			- Em geral, os sistemas de cor só conseguem representar um sub-conjunto de cores
+		- Composto por três componentes: $(X, Y, Z)$
+		- Uniformidade perceptual é não uniforme
+			- Boa parte dos sistemas são não uniforme (e.g., RGB, HSV, CIEXYZ)
+			- Algumas consequências: não podemos usar a distância de representação para definir diferenças entre as cores
+	- CIELUV
+		- Perceptualmente uniforme
+		- Aplica uma deformação no CIEXYZ
+	- CIELAB
+		- Perceptualmente uniforme
+		- Baseado no modelo de cores oponentes
+		- Espaços de cores "mais completo", pode ser usado para correção de balanço de cores
 		-
