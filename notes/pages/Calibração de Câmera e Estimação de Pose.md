@@ -1,3 +1,20 @@
-- Um problema comum de
+- Um problema comum de Visão Computacional é descobrir os *parâmetros* de uma câmera virtual que foi utilizada para geração de uma cena
+	- Parâmetros extrínsecos (e.g., posição da câmera no espaço, vetor de vista, 6DoF) e intrínsecos (e.g., distância focal, abertura, dependem no sensor)
 - Sistema de Coordenadas de Câmera
-	-
+	- Regra da mão direita e regra da mão esquerda
+	- Geralmente, utilizamos a regra da mão esquerda em CV
+- Representação de Câmera
+	- Centro de projeção $C$
+	- Distância focal $f$
+	- Plano de projeção de imagem: $z = f$
+	- Ponto 3D: $M_{\text{cam}} = [M_x, M_y, M_z]^T$
+	- Projeção: $m_{\text{cam}} = [m_x, m_y, f]^T$ é a intersecção entre o plano de projeção e a reta que passa por $C$ e $M_{\text{cam}}$
+	- Eixo principal é a reta que passa pelo ponto principal $c = [c_x, c_y, f]^T$
+	- Como calculamos $m_{\text{cam}}$? $m_x = f \frac{M_x}{M_z}$, $m_y = f \frac{M_y}{M_z}$
+		- Esse é o processo de Computação Gráfica
+		- Em Visão Computacional, queremos recuperar os parâmetros da *câmera*
+		- Podemos utilizar coordenadas homogêneas e representar esse processo de projeção como uma multiplicação entre matrizes
+		- Chamamos a matriz $K = \begin{bmatrix} f & 0 & c_x\\ 0 & f & c_y\\ 0 & 0 & 1\end{bmatrix}$ de *matriz de parâmetros intrínsecos*
+		- Chamamos a matriz $[R|t]$ de *matriz de parâmetros extrínsecos* ou *pose*
+		- Ao fazermos $P = K[R|t]$ temos a *matriz de projeção*
+-
