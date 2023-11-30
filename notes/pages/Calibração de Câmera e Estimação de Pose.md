@@ -1,0 +1,3 @@
+- Um problema comum de
+- Sistema de Coordenadas de Câmera
+	-

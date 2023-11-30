@@ -2,4 +2,6 @@
 - [[O que é Visão Computacional?]]
 - [[Fundamentos de Imagems]]
 - [[OpenCV]]
+- [[Calibração de Câmera e Estimação de Pose]]
 - Repositório: https://github.com/moesio-f/prost
+-
