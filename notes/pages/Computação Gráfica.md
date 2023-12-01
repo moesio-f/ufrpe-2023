@@ -3,6 +3,6 @@
 - [[Pipeline de Renderização]]
 - [[World/Object Space to ]]
 - [[Sistema de Cor]]
--
+- [[Algoritmos de Iluminação e Tonalização]]
 - Repositório: https://github.com/moesio-f/classic-cg
 -

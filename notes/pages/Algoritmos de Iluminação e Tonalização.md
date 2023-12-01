@@ -1,0 +1,47 @@
+- **Modelo de iluminação**: expressam fatores que determinam a cor da superfície da cena em um dado ponto
+	- Dois tipos principais: *local* e *global*
+	- No *local*, consideramos a **iluminação direta** (i.e., luz que vem diretamente de uma fonte de luz)
+	- No *global*, consideramos a **iluminação indireta** (e.g., também lida com luz após sofrer reflexão ou transmissão em outras superfícies ou na própria superfície do objeto) e **direta**
+		- Permite o *color bleeding*, entre cores de diferentes superfícies
+		- Permite o *caustics* (e.g., efeito que vemos quando a luz atravessa um copo d'água)
+		- Bem mais custoso que a contraparte *local*
+	- Caixa de Cornell: cena clássica usada em CG para avaliar diferentes modelos de iluminação
+- **Modelo de tonalização**: determina quando o modelo de iluminação deve ser aplicado e com quais parâmetros
+- Principais Modelos de Iluminação Local
+	- **Modelo de Luz Ambiente**
+		- Um dos mais simples
+		- Assume uma fonte de luz que atua igualmente em todas as superfícies de uma cena e em todas as direções
+		- Cores sólidas
+		- $I_\text{a} = K_\text{a} \cdot I_{\text{amb}}$
+			- $K_\text{a} \in [0, 1]$ é o coeficiente de reflexão ambiental
+			- $I_{\text{amb}} \in [0..255]^3$ é a cor da fonte de luz
+			- $I_\text{a}$ é a cor resultante para aquele objeto
+	- **Modelo de Iluminação de Reflexão Difusa**
+		- Assume que as superfícies dos objetos são *Lambertianas* (i.e., propriedade física onde a luz é refletida de maneira proporcional ao ângulo de incidência, independente da direção de vista)
+		- Boa para representar superfícies foscas
+		- Seja $N$ é a normal da superfície, $L$ a direção para a fonte de luz e $\theta$ o ângulo entre $N$ e $L$
+			- A quantidade de luz refletida é proporcional à $\cos(\theta)$
+			- O ideal é que $N$ e $L$ estejam normalizadas, assim $\cos(\theta) = \left<N,L\right>$
+			- $I_d = \left<N, L\right> \cdot K_d * O_d * I_l$
+				- $K_d \in [0, 1]^3$ é o coeficiente de reflexão difusa do objeto
+				- $O_d \in [0, 1]^3$ é a cor difusa da superfície do objeto (i.e., cor do material daquela superfície)
+				- $I_l \in [0, 1]^3$ é a cor da luz incidente
+	- **Modelo de Iluminação Phong**
+		- Além da luz ambiente e da reflexão difusa, adiciona uma componente de reflexão especular (depende da direção de  vista)
+		- Seja $R$ a direção normalizada da reflexão e $V$ a direção normalizada de vista (não é o $V$ da câmera)
+			- $I_s = \left<R, V\right>^\eta \cdot K_s \cdot I_l$
+				- $\eta \geq 1$ modela o tamanho do destaque especular
+				- $K_s \in [0, 1]$ é o coeficiente de reflexão especular do objeto
+				- $I_l \in [0, 1]^3$ é a cor da luz incidente
+			- Como obter $R$?
+				- Usamos o vetor $L$ (direção da fonte de luz) e a normal $N$ da superfície
+				- $R= \operatorname{proj}^L_N -(L -  \operatorname{proj}^L_N)$
+				- Após algumas simplificações, $R = 2\left<N, L\right>N - L$
+			- Existem alguns casos especiais (checar os slides)
+		- A cor final, seguindo esse modelo, é dada por $I = \operatorname{clip}(I_a + I_d + I_s, 0, 255)$
+- Modelos de Tonalização
+	- Modelo de Tonalização Gouraud
+	- **Modelo de Tonalização de Phong**
+		- Normais no interior do polígono são obtidas através da interpolação das normais dos vértices do polígono
+		- O cálculo da iluminação ocorre para todos os pontos visíveis
+		-
