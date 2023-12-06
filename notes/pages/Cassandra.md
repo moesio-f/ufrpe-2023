@@ -1,4 +1,5 @@
 - Banco de Dados Orientado a Colunas
+  collapsed:: true
 	- O Banco de Dados Relacional é orientado a **linhas**
 	- Possuem **compressão**, **reconstrução de tuplas** e **iteração de bloco**
 		- C -> armazenar tipos juntos
@@ -6,6 +7,7 @@
 		- IB -> armazena em disco os elementos de cada coluna de forma contígua
 	- ![What is a Columnar Database? Definition and Related FAQs | HEAVY.AI](https://assets-global.website-files.com/620d42e86cb8ec4d0839e59d/6230f60beb40de5402e42afd_61c9dc6201b6e4d8debe7976_Columnar-Database-Diagram.png)
 - História do Modelo Colunar (Wide-Column)
+  collapsed:: true
 	- 2005-2010 -> surgimento, necessidade a alguns sistemas analíticos que precisam de um grande volume de dados
 	- 2008 -> MonetDB e C-Store
 	- 2010+ -> popularização e diversificação; integração em ecossistemas de Big Data
@@ -13,6 +15,7 @@
 		- Novos estudos sendo realizados
 		- Novas tecnologias
 - Propriedades do Modelo Colunar
+  collapsed:: true
 	- **Flexibilidade de Schema**: adição e remoção de colunas é simples
 	- **Alta Taxa de Inserção**: inserção são rápidas
 	- **Aplicações Específicas**: Data Warehouses e OLAP (Online Analytical Processing)
@@ -21,6 +24,7 @@
 	- Compressão Eficiente
 	- Escalabilidade Horizontal
 - Como podemos fazer a modelagem nesse modelo?
+  collapsed:: true
 	- Projeto da estrutura de dados -> organizando os dados de forma eficiente -> orientado às necessidades do sistema
 	- Entender os dado -> relacionamentos, tipos, etc
 	- Escolha do DBMS -> Cassandra, HBase, Vertica
@@ -31,6 +35,7 @@
 	- Otimização para Consultas -> opções de indexação e organização
 - ER/Studio, Navicat Data Modeler
 - Queries, Navegações e SGBDs
+  collapsed:: true
 	- Motivação: escalabilidade, eficiência e disponibilidade
 	- SGBDs mais populares
 		- BigTable
@@ -45,17 +50,20 @@
 	- No Join: não fazemos JOINs com o Cassandra, não é o recomendado e nem comum
 	- Família de colunas para facilitar as consultas
 - Apache Cassandra
+  collapsed:: true
 	- Desenvolvido pelo Facebook
 	- Se tornou open-source em 2008 e passou a ser mantido pela Apache Foundation
 	- Modelo de distribuição baseado no DynamoDB
 	- Formato de organização baseado no BigTable
 	- Elasticidade horizontal
 - Amazon DynamoDB
+  collapsed:: true
 	- Banco de dados chave-valor
 	- Escalável em Cloud
 	- Replicação de dados de forma síncrona entre três instalações em uma região do AWS
 	- Versão pública é chamado apenas de DynamoDB
 - BigTable
+  collapsed:: true
 	- Desenvolvido para lidar com grandes workflows de dados
 	- Tabela preenchida de maneira esparsa que pode ser escalonada para bilhões de linhas e milhares de colunas
 	- Otimizado para alta leitura e escrita por segundo
@@ -64,7 +72,10 @@
 	- Se precisar de muita consistência -> responsabilidade da aplicação
 	- Volume de dados ou throughput pequeno
 	- Quado os recursos computacionais são escassos (e.g., Hardware)
+	- Se são necessárias agregações em consultas (e.g., SUM, AVG)
+	- Não recomendado para protótipos (i.e., configuração é demorado, deixar apenas para quando tivermos garantias)
 - Estudo de Caso: Netflix
+  collapsed:: true
 	- Fundada em 2007; Em 2011 ocorreu um boom na quantidade de assinantes e de múltiplos países
 	- Precisaram migrar de um SGBD Relacionado para um NoSQL -> Cassandra
 	- Como eles testaram se o Cassandra seria suficiente
@@ -76,10 +87,40 @@
 		- Custo para os testes: muito baixos por usarem a AWS
 	- Conclusão: Cassandra foi suficiente para resolver os problemas que eles possuíam
 - Algumas aplicações para IA em Tempo Real
+  collapsed:: true
 	- Dados são coletados, armazenados e treinados de formas mais eficientes
 	- Utilizado majoritariamente pelo TikTok e Google
 - DataStax Studio
+  collapsed:: true
+	- Empresa que mantém o Cassandra: DataStax
 	- Oferece facilidades para visualização e análise de dados de BDs colunares
 	- Criada baseada no CQL
 	- Possui suporte à Markdown e Gremlin
 	- Utiliza Notebooks que podemos salvar scripts (similar aos .sql, mas com funcionalidades de visualização embutidos)
+- Keyspace
+	- Sinônimo utilizado para representar um *Banco de Dados*
+	- Dentro de um Keyspace criamos várias *famílias de colunas* (equivalentes às *tabelas*)
+	- Discussão entre a implementação (modelo físico) ser baseada em linha ou coluna
+- Partições
+	- Podemos definir uma *coluna* que será utilizada para particionamento de uma *família de colunas*
+	- Quando definimos uma chave primário no Cassandra além de dizermos o atributo identificador também estamos definindo um *Partition Key*
+		- Primary Key = (Partition Key, Clustering Column)
+		- Partition Key pode ser composta por múltiplos atributos
+		- Necessário cautela na definição da Partition Key
+	- Internamente, as partições são armazenados em formato de anel
+	- > The Partition Key is responsible for data distribution accross your nodes. The Clustering Key is responsible for data sorting within the partition. The Primary Key is equivalent to the Partition Key in a single-field-key table.
+- Cassandra tem foco em Disponibilidade e Tolerância à Partição
+	- Não existe diferenciação entre nós mestres e escravos
+	- Podemos controlar o balanceamento entre nós específicos para leitura e escrita: $(W + R) > N$
+	- Também podemos configurar o nível de consistência
+		- ANY -> Garantimos que salvar em qualquer outro é suficiente
+		- ONE, TWO, THREE -> Quantidade específica de nós próximos
+		- QUORUM -> Maioria
+		- LOCAL_ONE -> No mesmo datacenter
+		- LOCAL_QUORUM -> No mesmo datacenter e maioria
+		- EACH_QUORUM
+		- ALL -> acaba com a disponibilidade
+		- https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlClientRequestsReadExp.html
+- Aplicações
+	- Registro de Logs
+	- Sistema de Gerenciamento de Conteúdo (e.g., Blog)

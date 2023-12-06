@@ -44,4 +44,3 @@
 	- **Modelo de Tonalização de Phong**
 		- Normais no interior do polígono são obtidas através da interpolação das normais dos vértices do polígono
 		- O cálculo da iluminação ocorre para todos os pontos visíveis
-		-
