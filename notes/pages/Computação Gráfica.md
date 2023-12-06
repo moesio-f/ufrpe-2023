@@ -4,5 +4,6 @@
 - [[World/Object Space to ]]
 - [[Sistema de Cor]]
 - [[Algoritmos de Iluminação e Tonalização]]
+- [[Texturização]]
 - Repositório: https://github.com/moesio-f/classic-cg
 -

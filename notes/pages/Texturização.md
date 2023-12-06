@@ -1,0 +1,48 @@
+- Textura: propriedades da superfície de um objeto (e.g., suavidade, rugosidade, regularidade)
+	- Relacionada com a aparência do objeto
+	- Na Computação Gráfica, temos diferentes níveis de realismo para as texturas
+- Mapa de Textura (*Texture Map*)
+	- Imagem 2D -> mapa mais simples
+	- Cada posição $(x, y)$ da imagem possui uma cor $(R, G, B)$
+	- A ideia é fazer um mapeamento da Imagem para o objeto
+		- Replicação
+		- Esticar/deforma
+	- MIP Mapping
+		- Ideia de pré-computar texturas de resoluções decrescentes
+		- No momento do mapeamento, escolhemos o de proporção mais próximo
+		- Resolve o problema quando o "tamanho" do objeto é menor que o tamanho da textura
+			- Quando ele é maior, utilizamos outras técnicas
+		- ![Definition of MIP mapping | PCMag](https://i.pcmag.com/imagery/encyclopedia-terms/mip-mapping-mipmap.fit_lim.size_1050x.gif)
+	- Planarização de Malha
+	- Atlas de Textura: junção de múltiplas malhas planarizadas
+	- Mapa Ambiental
+		- Usado para simular reflexão nos objetos
+		- Vetor de reflexão mapeado para coordenadas de textura
+		- Pode ser: esférico, cúbico, LatLong, ...
+		- Mapa Esférico
+			- coordenadas polares
+		- Mapa Cúbico
+			- Reflexão das 4 paredes, skybox e chão
+		- Mapa Latitude e Longitude (LatLong)
+	- Bump Map
+		- Textura de superfície áspera não fica muito correta
+		- Bum map cria ilusão de relevo na superfície
+		- Silhuetas e sombras permanecem inalteradas
+	- Mapa de Deslocamento (*Displacement Map*)
+		- Usa mapa para modificar a geometria do objeto
+		- Gera silhuetas e sombras corretas
+		- Mais custoso que bump map
+	- Mapa de Normais
+		- Variação do bump map
+		- Mapa de normais gerado com geometria complexo
+		- Usado para melhorar aparência de geometria simples
+- Elementos -el
+	- **Pixel**: Picture Element
+	- **Voxel**: Volume Element
+	- **Texel**: Texture Element
+		- Elemento mínimo de textura
+- Mapeamento de Textura
+	- Mapeamento UV
+		- Mapa de $(u, v)$ (textura) para $(x, y, z)$ do objeto
+		- $u, v \in [0, 1]$ são as componentes normalizadas do mapa
+		- ![UV mapping - Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/UVMapping.png/400px-UVMapping.png)
