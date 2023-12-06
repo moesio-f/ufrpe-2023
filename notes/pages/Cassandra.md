@@ -1,0 +1,85 @@
+- Banco de Dados Orientado a Colunas
+	- O Banco de Dados Relacional é orientado a **linhas**
+	- Possuem **compressão**, **reconstrução de tuplas** e **iteração de bloco**
+		- C -> armazenar tipos juntos
+		- RT -> Late Materialization parecido com Lazy Evaluation
+		- IB -> armazena em disco os elementos de cada coluna de forma contígua
+	- ![What is a Columnar Database? Definition and Related FAQs | HEAVY.AI](https://assets-global.website-files.com/620d42e86cb8ec4d0839e59d/6230f60beb40de5402e42afd_61c9dc6201b6e4d8debe7976_Columnar-Database-Diagram.png)
+- História do Modelo Colunar (Wide-Column)
+	- 2005-2010 -> surgimento, necessidade a alguns sistemas analíticos que precisam de um grande volume de dados
+	- 2008 -> MonetDB e C-Store
+	- 2010+ -> popularização e diversificação; integração em ecossistemas de Big Data
+	- Hoje -> continuidade e inovação
+		- Novos estudos sendo realizados
+		- Novas tecnologias
+- Propriedades do Modelo Colunar
+	- **Flexibilidade de Schema**: adição e remoção de colunas é simples
+	- **Alta Taxa de Inserção**: inserção são rápidas
+	- **Aplicações Específicas**: Data Warehouses e OLAP (Online Analytical Processing)
+	- Permite consultas analíticas complexas
+	- Organização Eficiente e Redução de I/O
+	- Compressão Eficiente
+	- Escalabilidade Horizontal
+- Como podemos fazer a modelagem nesse modelo?
+	- Projeto da estrutura de dados -> organizando os dados de forma eficiente -> orientado às necessidades do sistema
+	- Entender os dado -> relacionamentos, tipos, etc
+	- Escolha do DBMS -> Cassandra, HBase, Vertica
+	- Identificação de Entidades e Atributos
+		- Exemplo: Produto, Cliente e Venda
+		- Atributos: Código, Nome, Preço, Categoria, etc
+	- Definição dos Tipos de Dados
+	- Otimização para Consultas -> opções de indexação e organização
+- ER/Studio, Navicat Data Modeler
+- Queries, Navegações e SGBDs
+	- Motivação: escalabilidade, eficiência e disponibilidade
+	- SGBDs mais populares
+		- BigTable
+		- HBase
+		- Cassandra
+	- No geral, a etapa mais importante para esse tipo de banco são as Queries
+		- Por conta disso, é comum termos linguagens específicas para manipulação
+		- Query-first
+		- Cassandra usa o CQL (Cassandra Query Language)
+	- Desnormalização (e.g., duplicidade)
+	- Integridade Referencial: não é imposto pelo Cassandra, não precisamos ter uma coluna sobre uma chave estrangeira por exemplo
+	- No Join: não fazemos JOINs com o Cassandra, não é o recomendado e nem comum
+	- Família de colunas para facilitar as consultas
+- Apache Cassandra
+	- Desenvolvido pelo Facebook
+	- Se tornou open-source em 2008 e passou a ser mantido pela Apache Foundation
+	- Modelo de distribuição baseado no DynamoDB
+	- Formato de organização baseado no BigTable
+	- Elasticidade horizontal
+- Amazon DynamoDB
+	- Banco de dados chave-valor
+	- Escalável em Cloud
+	- Replicação de dados de forma síncrona entre três instalações em uma região do AWS
+	- Versão pública é chamado apenas de DynamoDB
+- BigTable
+	- Desenvolvido para lidar com grandes workflows de dados
+	- Tabela preenchida de maneira esparsa que pode ser escalonada para bilhões de linhas e milhares de colunas
+	- Otimizado para alta leitura e escrita por segundo
+	- Desenvolvido pelo Google
+- Quando não usar o Cassandra?
+	- Se precisar de muita consistência -> responsabilidade da aplicação
+	- Volume de dados ou throughput pequeno
+	- Quado os recursos computacionais são escassos (e.g., Hardware)
+- Estudo de Caso: Netflix
+	- Fundada em 2007; Em 2011 ocorreu um boom na quantidade de assinantes e de múltiplos países
+	- Precisaram migrar de um SGBD Relacionado para um NoSQL -> Cassandra
+	- Como eles testaram se o Cassandra seria suficiente
+		- Testes com o Amazon EC2
+		- Testes de estresse foram realizados
+	- E funcionou?
+		- A resposta é que sim
+		- Foram testados diferentes configurações de clientes (cada 1 gerando alguns dezenas de milhares de operações por clientes), quantidade de nós, fatores de replicação
+		- Custo para os testes: muito baixos por usarem a AWS
+	- Conclusão: Cassandra foi suficiente para resolver os problemas que eles possuíam
+- Algumas aplicações para IA em Tempo Real
+	- Dados são coletados, armazenados e treinados de formas mais eficientes
+	- Utilizado majoritariamente pelo TikTok e Google
+- DataStax Studio
+	- Oferece facilidades para visualização e análise de dados de BDs colunares
+	- Criada baseada no CQL
+	- Possui suporte à Markdown e Gremlin
+	- Utiliza Notebooks que podemos salvar scripts (similar aos .sql, mas com funcionalidades de visualização embutidos)
