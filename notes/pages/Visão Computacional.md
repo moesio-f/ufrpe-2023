@@ -3,5 +3,5 @@
 - [[Fundamentos de Imagems]]
 - [[OpenCV]]
 - [[Calibração de Câmera e Estimação de Pose]]
+- [[Reconstrução 3D]]
 - Repositório: https://github.com/moesio-f/prost
--

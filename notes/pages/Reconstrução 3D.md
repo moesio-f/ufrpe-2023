@@ -1,0 +1,28 @@
+- Reconstrução *automática* de formas 3D a partir de múltiplas visões
+	- A ideia é realizar coleções de medidas (potencialmente 2D) e transformar para 3D (noção de profundidade)
+- Motivação
+	- Custo na modelagem
+	- Tempo gasto na modelagem
+	- Ambientes dinâmicos/modelos atualizados
+- Passos para Reconstrução
+	- **Aquisição de Dados** -> coleta dos dados
+		- Com Contato
+			- Não-destrutivo
+			- Destrutivo
+		- Sem Contato
+			- Reflexivo
+				- Não-ótico -> Radar e Sonar
+				- **Ótico**, principal de Visão Computacional
+					- Ativa
+						- Lasers
+						- Estéreo ativo
+					- Passiva
+						- Image-based Rendering
+						- Single View Metrology
+						- Estéreo
+						- Structure from Motion (SfM)
+			- Transmissivo -> Tomografia, Ressonância
+	- **Registro** -> relacionar imagem com objeto
+	- **Integração** -> melhorar para inferir estrutura
+	- **Otimização** -> melhorar estrutura
+-
