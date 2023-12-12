@@ -1,0 +1,2 @@
+- Motivação: como podemos resolver problemas com noção *temporal*?
+	- Por exemplo
