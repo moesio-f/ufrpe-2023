@@ -1,0 +1,33 @@
+- Uma base de dados possui várias *coleções*
+	- Uma *coleção* possui vários documentos (equivalente às tabelas)
+	- O documento é o equivalente à uma *tupla*
+	- Todo documento é único dentro do banco de dados, todavia eles podem representar o mesmo objeto do mundo real
+- Algumas estratégias de modelagem
+	- Utilizar documentos autocontidos
+	- Aumentar agregação e aninhamento dos dados
+- Características e Recursos
+	- Conjunto de réplicas mestre-escravo (nó primário que distribui os dados para os demais nós)
+		- Caso o nó primário se torna indisponível, outro é escolhido
+	- Consistência e disponibilidade
+		- Podemos controlar o balanceamento entre disponibilidade e consistência
+		- Podemos permitir que nós escravos recebam requisições de leitura diretamente
+	- Transações
+		- Não existem comandos de commit ou rollback
+		- As gravações são bem sucedidas ou falhas
+		- Transações atômicas: 1 documento por vez
+		- + de uma operação não é possível
+	- Escalabilidade
+		- Horizontal para leituras (+ escravos)
+		- Horizontal para gravações (fragmentação)
+			- Dados divididos por campo entre os nós graváveis (e.g., fragmentar pela localização do cliente)
+			- Normalmente, só ocorre quando temos uma necessidade de escala muito alta
+- Casos apropriados
+	- Registro de ventos
+	- Sistemas de gerenciamento de conteúdo (e.g., blog)
+	- Análises web ou em tempo real (analytics)
+	- Comércio Eletrônico
+- Caos Inapropriados
+	- Transações complexas que envolvem múltiplas operações (e.g., atômico em múltiplos documentos)
+	- Consultas em estruturas agregadas variáveis
+		- Comumente, a parte variável se torna um sub-documento, facilitando manipulações no objeto raiz
+	- Gravar em um nível muito baixo de granularidade
